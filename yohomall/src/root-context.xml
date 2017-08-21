@@ -1,8 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	<context:component-scan base-package="com.**.service.impl,com.**.dao"></context:component-scan>
+	<!-- <context:property-placeholder location="classpath:jdbc.properties"/> -->
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
+	<util:properties id="propsReader" location="classpath:jdbc.properties"/>
+	<!--数据源  -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<!-- <property name="driverClass" value="${driver}" />
+		<property name="jdbcUrl" value="${url}"/>
+		<property name="user" value="${username}"/>
+		<property name="password" value="${password}"/> -->
+		<property name="driverClass" value="#{propsReader[driver]}" />
+		<property name="jdbcUrl" value="#{propsReader[url]}"/>
+		<property name="user" value="#{propsReader[username]}"/>
+		<property name="password" value="#{propsReader[password]}"/>
 		
+		<property name="minPoolSize" value="2"/>
+		<property name="maxPoolSize" value="20"/>
+		<property name="maxStatements" value="100"/>
+		<property name="checkoutTimeout" value="1800"/>
+		<property name="acquireIncrement" value="2"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource" ref="dataSource" />
+  		
+  		<property name="mapperLocations" value="classpath*:com/yohomall/dao/*.xml" />
+		 <!--加载 mybtis的全局配置文件 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	<!-- mapper扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.**.dao"/>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	<!-- <mybatis-spring:scan base-package="com.**.mapper"/> -->
+	
+	
+	  <!--  配置事务管理  -->
+   <bean id="transactionManager" 
+   		class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+   		<property name="dataSource" 
+   		    ref="dataSource"></property>		
+   </bean>
+	<tx:annotation-driven/>
+	<!-- 配置注解事务支持
+	<tx:annotation-driven/> -->
+	
+	<!-- 配置事务增强处理Bean，指定事务管理器 -->
+	<!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+	配置详细事务处理语义
+		<tx:attributes>
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="select*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="load*" propagation="REQUIRED" read-only="true" />
+
+			其他采用默认事务方式
+			<tx:method name="*" />
+
+		</tx:attributes>
+	</tx:advice>
+
+	Spring aop事务管理
+	<aop:config>
+		配置切入点
+		<aop:pointcut id="transactionPointcut"
+			expression="execution(* com.**.serviceImpl.*.*(..))" />
+		指定在txAdvice切入点应用txAdvice事务增强处理
+		<aop:advisor pointcut-ref="transactionPointcut"
+			advice-ref="transactionAdvice" />
+	</aop:config> -->
+	
 </beans>
+
