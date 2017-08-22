@@ -14,7 +14,7 @@ public class Product implements Serializable{
 	private BigDecimal price;
 	private BigDecimal sellingprice;
 	private Integer  sex;
-	
+	//商品类型
 	private Category category;
 
 	public Integer getPid() {

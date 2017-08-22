@@ -14,7 +14,7 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<c:if test="${empty user }">
+						<%-- <c:if test="${empty user }">
 							<li><a href="${pageContext.request.contextPath }/user?method=loginUI">登录</a></li>
 							<li><a href="${pageContext.request.contextPath }/user?method=registUI">注册</a></li>
 						</c:if>
@@ -23,7 +23,7 @@
 							<li><a href="${pageContext.request.contextPath }/order?method=findMyOrdersByPage&pageNumber=1">我的订单</a></li>
 							<li><a href="${pageContext.request.contextPath }/user?method=logout">退出</a></li>
 						</c:if>
-						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li>
+						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li> --%>
 					</ol>
 				</div>
 			</div>
@@ -63,16 +63,20 @@
 				</nav>
 			</div>
 <script type="text/javascript">
-	$(function(){
+	      $(function(){
 		//发送ajax 查询所有分类
-		$.post("${pageContext.request.contextPath}/category",{"method":"findAll"},function(obj){
+		$.post("${pageContext.request.contextPath}/category.action",function(obj){
 			//alert(obj);
 			//遍历json列表,获取每一个分类,包装成li标签,插入到ul内部
 			//$.each($(obj),function(){});
-			$(obj).each(function(){
-				//alert(this.cname);
-				$("#c_ul").append("<li><a href='${pageContext.request.contextPath}/product?method=findByPage&pageNumber=1&cid="+this.cid+"'>"+this.cname+"</a></li>");
-			});
+			 $(obj).each(function(){
+				// alert(this.tid);
+				  $("#c_ul").append("<li><a href='${pageContext.request.contextPath}/product.action?&pageNum=1&tid="+this.tid+"'>"+this.type+"</a></li>");  
+			}); 
 		},"json");
-	})
+	});   
+	
+	
+	
+	
 </script>
