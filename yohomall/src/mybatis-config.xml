@@ -5,6 +5,6 @@
 	<typeAliases>
 		<package name="com.yohomall.pojo"/>
 	</typeAliases>
-
+	
 
 </configuration>

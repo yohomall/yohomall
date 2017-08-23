@@ -3,6 +3,7 @@ package com.yohomall.service;
 import com.yohomall.pojo.User;
 import com.yohomall.service.exception.InvalidNameException;
 import com.yohomall.service.exception.InvalidPasswordException;
+import com.yohomall.service.exception.existException;
 
 /**
  * 
@@ -22,7 +23,8 @@ public interface UserService {
 	 * @throws InvalidNameException
 	 * @throws InvalidPasswordException
 	 */
-	User login(String name, String password) throws InvalidNameException,
-			InvalidPasswordException;
-
+	User login(String email, String password);
+	User checkEmail(String email)throws existException;
+	int register(User u);
+	int update(User u);
 }
