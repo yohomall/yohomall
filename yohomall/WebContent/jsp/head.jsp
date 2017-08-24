@@ -14,16 +14,16 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<%-- <c:if test="${empty user }">
+						
 							<li><a href="${pageContext.request.contextPath }/user?method=loginUI">登录</a></li>
 							<li><a href="${pageContext.request.contextPath }/user?method=registUI">注册</a></li>
-						</c:if>
-						<c:if test="${not empty user }">
-							${user.name }:你好!
-							<li><a href="${pageContext.request.contextPath }/order?method=findMyOrdersByPage&pageNumber=1">我的订单</a></li>
-							<li><a href="${pageContext.request.contextPath }/user?method=logout">退出</a></li>
-						</c:if>
-						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li> --%>
+						
+						
+						
+							<%-- <li><a href="${pageContext.request.contextPath }/order?method=findMyOrdersByPage&pageNumber=1">我的订单</a></li>
+							<li><a href="${pageContext.request.contextPath }/user?method=logout">退出</a></li> --%>
+						
+						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li> 
 					</ol>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="${pageContext.request.contextPath }">首页</a>
+							<a class="navbar-brand" href="${pageContext.request.contextPath }/index.action">首页</a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,7 +71,7 @@
 			//$.each($(obj),function(){});
 			 $(obj).each(function(){
 				// alert(this.tid);
-				  $("#c_ul").append("<li><a href='${pageContext.request.contextPath}/product.action?&pageNum=1&tid="+this.tid+"'>"+this.type+"</a></li>");  
+				  $("#c_ul").append("<li><a href='${pageContext.request.contextPath}/product.action?pageNum=1&tid="+this.tid+"'>"+this.type+"</a></li>");  
 			}); 
 		},"json");
 	});   

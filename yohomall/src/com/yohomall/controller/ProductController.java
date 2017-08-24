@@ -19,28 +19,44 @@ import com.yohomall.util.PageUtil;
 public class ProductController {
 	@Autowired
 	private ProductServiceImpl service;
-	
+	/**
+	 * 
+	 * @param model 
+	 * @param tid 	商品类型id
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	//商品分页
 	@RequestMapping(value="product")
 	public String list(Model model,Integer tid,HttpServletRequest request) throws Exception {
 		PageUtil<Product> pageUtil =new PageUtil<>();
 		pageUtil.setTotalRecord(service.getTotalRecord(tid));
-		pageUtil.setPageSize(6);
+		pageUtil.setPageSize(8);
 		int pageNum=1;
 		if (request.getParameter("pageNum")!=null) {
 			pageNum=Integer.valueOf(request.getParameter("pageNum"));
 		}
-		/*System.out.println(pageNum);*/
+		
 		pageUtil.setPageNum(pageNum);
 		int StartIndex=pageUtil.getStartIndex();
 		
-		List<Product> list= service.getByPage(tid, StartIndex, 6);
-		/*System.out.println(list.size());*/
+		List<Product> list= service.getByPage(tid, StartIndex, pageUtil.getPageSize());
+		
 		pageUtil.setData(list);
 		
 		model.addAttribute("page", pageUtil);
 		return "product_list";
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	//查询单个商品
 	@RequestMapping(value="getProduct")
 	public String getById(Integer id,Model model) throws Exception {
 		
