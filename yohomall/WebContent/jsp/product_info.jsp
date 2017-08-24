@@ -35,7 +35,7 @@
 		<div class="container">
 			<div class="row">
 				<div style="border: 1px solid #e4e4e4;width:930px;margin-bottom:10px;margin:0 auto;padding:10px;margin-bottom:10px;">
-					<a href="./index.htm">首页&nbsp;&nbsp;&gt;</a>
+					<a href="${pageContext.request.contextPath }/index.action">首页&nbsp;&nbsp;&gt;</a>
 					<!-- <a href="./蔬菜分类.htm">蔬菜&nbsp;&nbsp;&gt;</a>
 					<a>无公害蔬菜</a> -->
 				</div>
@@ -48,7 +48,7 @@
 					<div class="col-md-6">
 						<div><strong>${bean.pname }</strong></div>
 						<div style="border-bottom: 1px dotted #dddddd;width:350px;margin:10px 0 10px 0;">
-							<div>编号：751</div>
+							<!-- <div>编号：751</div> -->
 						</div>
 
 						<div style="margin:10px 0 10px 0;">商城价: <strong style="color:#ef0101;">￥：${bean.sellingprice }</strong> 市场 价： <del>￥${bean.price }</del>
@@ -65,7 +65,8 @@
 							<div style="margin:20px 0 10px 0;;text-align: center;">
 								<a href="cart.htm">
 									<input style="background: url('${pageContext.request.contextPath}/images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
-								</a> &nbsp;收藏商品</div>
+								</a> 
+							</div>
 						</div>
 					</div>
 				</div>

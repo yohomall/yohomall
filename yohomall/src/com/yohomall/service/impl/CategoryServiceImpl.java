@@ -21,7 +21,7 @@ public class CategoryServiceImpl implements CategoryService{
 		return categoryMapper.findClist();
 	}
 	
-	
+	//将商品类型集合转成json字符串
 	@Override
 	public String findAll() throws Exception {
 		List<Category> list = findClist();

@@ -16,7 +16,12 @@ public class CategoryController {
 	
 	@Autowired
 	 private CategoryServiceImpl cservice;
-	 
+	 /**
+	  * 将json数据返回给请求页面
+	  * @param request
+	  * @param response
+	  * @throws Exception
+	  */
 	@RequestMapping(value="category")
 	public void findAll(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");	

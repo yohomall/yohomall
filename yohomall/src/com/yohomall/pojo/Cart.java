@@ -1,5 +1,6 @@
 package com.yohomall.pojo;
 
+
 import java.io.Serializable;
 
 public class Cart implements Serializable{
@@ -38,7 +39,5 @@ public class Cart implements Serializable{
 		this.uid = uid;
 	}
 	
-	
-	
-	
+		
 }
