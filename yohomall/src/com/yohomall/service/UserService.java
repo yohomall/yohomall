@@ -13,18 +13,32 @@ import com.yohomall.service.exception.existException;
 public interface UserService {
 
 	/**
-	 * 客户登录
 	 * 
-	 * @param name
-	 *            用户名（手机号）
+	 * @param email
 	 * @param password
-	 *            密码
-	 * @return
-	 * @throws InvalidNameException
-	 * @throws InvalidPasswordException
+	 * @return User
 	 */
 	User login(String email, String password);
-	User checkEmail(String email)throws existException;
+
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * @throws existException
+	 */
+	boolean checkEmail(String email) throws existException;
+
+	/**
+	 * 
+	 * @param u
+	 * @return
+	 */
 	int register(User u);
+
+	/**
+	 * 
+	 * @param u
+	 * @return
+	 */
 	int update(User u);
 }

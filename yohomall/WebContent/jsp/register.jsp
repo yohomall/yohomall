@@ -33,74 +33,22 @@ font {
     padding: 0 10px;
 }
  </style>
+ 
+ <script type="text/javascript">
+ 	$(function(){
+ 		$('#email').on('blur',function(){
+ 			$.get(
+					'${pageContext.request.contextPath}/check.action',
+					{email:$('#email').val()},
+					function(data){
+					$('#email').next().text(data);
+ 		});
+ 	});
+ });
+ </script>
 </head>
 <body>
-
-
-
-
-			<!--
-            	时间：2015-12-30
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.png" />
-				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.htm">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
-					</ol>
-				</div>
-			</div>
-			<!--
-            	时间：2015-12-30
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-
-
-
-
+<%@ include file="/jsp/head.jsp" %>
 
 <div class="container" style="width:100%;background:url('${pageContext.request.contextPath}/image/regist_bg.jpg');">
 <div class="row"> 
@@ -115,36 +63,33 @@ font {
 		<form class="form-horizontal" style="margin-top:5px;" method="post" action="${pageContext.request.contextPath }/user">
 			<input type="hidden" name="method" value="regist">
 			 <div class="form-group">
-			    <label for="username" class="col-sm-2 control-label">用户名</label>
+			    <label for="username" class="col-sm-2 control-label">姓名</label>
 			    <div class="col-sm-6">
 			      <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username">
+			    </div>
+			  </div>
+			    <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			    <div class="col-sm-6">
+			      <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+			      <span style="background-color: red;"></span>
 			    </div>
 			  </div>
 			   <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 			    <div class="col-sm-6">
-			      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码" name="password">
+			      <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
 			    </div>
 			  </div>
-			   <div class="form-group">
-			    <label for="confirmpwd" class="col-sm-2 control-label">确认密码</label>
-			    <div class="col-sm-6">
-			      <input type="password" class="form-control" id="confirmpwd" placeholder="请输入确认密码">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-			    <div class="col-sm-6">
-			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
-			    </div>
-			  </div>
+			   
+			
 			 <div class="form-group">
-			    <label for="usercaption" class="col-sm-2 control-label">姓名</label>
+			    <label for="usercaption" class="col-sm-2 control-label">昵称</label>
 			    <div class="col-sm-6">
 			      <input type="text" class="form-control" id="usercaption" placeholder="请输入姓名" name="name">
 			    </div>
 			  </div>
-			  <div class="form-group opt">  
+			 <!--  <div class="form-group opt">  
 			  <label for="inlineRadio1" class="col-sm-2 control-label">性别</label>  
 			  <div class="col-sm-6">
 			    <label class="radio-inline">
@@ -160,9 +105,9 @@ font {
 			    <div class="col-sm-6">
 			      <input type="date" class="form-control"  name="birthday">		      
 			    </div>
-			  </div>
+			  </div> -->
 			  
-			  <div class="form-group">
+			<%--   <div class="form-group">
 			    <label for="date" class="col-sm-2 control-label">验证码</label>
 			    <div class="col-sm-3">
 			      <input type="text" class="form-control"  >
@@ -172,7 +117,7 @@ font {
 			    <img src="${pageContext.request.contextPath}/image/captcha.jhtml"/>
 			    </div>
 			    
-			  </div>
+			  </div> --%>
 			 
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">

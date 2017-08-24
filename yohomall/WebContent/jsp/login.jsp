@@ -115,31 +115,22 @@ font {
 				<font>会员登录</font>USER LOGIN ${msg }
 
 				<div>&nbsp;</div>
-<form class="form-horizontal" action="${pageContext.request.contextPath }/user" method="post">
+<form class="form-horizontal" action="${pageContext.request.contextPath }/user.action" method="post">
 	<input type="hidden" name="method" value="login">
   
  <div class="form-group">
-    <label for="username" class="col-sm-2 control-label">用户名</label>
+    <label for="username" class="col-sm-2 control-label">用户邮箱</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username">
+      <input type="text" class="form-control" id="email" placeholder="请输入邮箱" name="email">
     </div>
   </div>
    <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
     <div class="col-sm-6">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码" name="password">
+      <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
     </div>
   </div>
-   <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
-    </div>
-    <div class="col-sm-3">
-      <img src="${pageContext.request.contextPath}/image/captcha.jhtml"/>
-    </div>
-    
-  </div>
+  
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">

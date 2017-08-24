@@ -7,13 +7,12 @@ public class Category implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer tid;
+	private int tid;
 	private String type;
-	
-	public Integer getTid() {
+	public int getTid() {
 		return tid;
 	}
-	public void setTid(Integer tid) {
+	public void setTid(int tid) {
 		this.tid = tid;
 	}
 	public String getType() {

@@ -10,18 +10,26 @@ public interface UserMapper {
 
 	/**
 	 * 
-	 * @param name
-	 * @return ¥Ê‘⁄∑µªÿ User£¨∑Ò‘Ú null
+	 * @param email
+	 * @return
 	 */
-	@Select("select * from user where email=#{email}")
-	User findByName(String email);
-	
-	@Select("select * from user where email=#{email}")
-	User checkName(String email);
+	@Select("select * from user where email=#{email} limit 1")
+	boolean findByEmail(String email);
+
+	/**
+	 * 
+	 * @param u
+	 * @return
+	 */
 	@Insert("insert into user(email,password,sex,birthday,uname,nickname)"
 			+ "values(#{email},#{password},#{sex},#{birthday},#{uname},#{nickname})")
 	int add(User u);
-	
+
+	/**
+	 * 
+	 * @param u
+	 * @return
+	 */
 	@Update("update user set password=#{password},sex=#{sex},birthday=#{birthday},nickname=#{nickname} where uid = #{uid}")
 	int update(User u);
 }

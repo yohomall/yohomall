@@ -20,21 +20,9 @@ import com.yohomall.service.impl.UserServiceImpl;
 import com.yohomall.util.Util;
 
 public class test {
-//	@Autowired
-//	private ProductServiceImpl service;
+
 	@Autowired
 	private UserServiceImpl  uservice;
-	
-//	@Test
-//	public void getById() throws Exception {
-////		Product product=service.getById(7);
-////		System.out.println(product.getPname()+product.getImage());
-//		List<Product> products = service.findProduct();
-//		for(Product p : products){
-//			System.out.println(p.getPname()+p.getPid()+p.getCategory().getType()+p.getSex());
-//		}
-//		
-//	}
 	
 	/**
 	 * ÓÃ»§×¢²á
