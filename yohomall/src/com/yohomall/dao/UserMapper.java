@@ -18,6 +18,13 @@ public interface UserMapper {
 
 	/**
 	 * 
+	 * @param email
+	 * @return
+	 */
+	@Select("select * from user where email=#{email}")
+	User find(String email);
+	/**
+	 * 
 	 * @param u
 	 * @return
 	 */

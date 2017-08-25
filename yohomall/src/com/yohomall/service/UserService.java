@@ -41,4 +41,11 @@ public interface UserService {
 	 * @return
 	 */
 	int update(User u);
+	
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 */
+	
 }

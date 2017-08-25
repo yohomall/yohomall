@@ -12,17 +12,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
+
 import com.yohomall.pojo.User;
-
 import com.yohomall.service.exception.existException;
-
 import com.yohomall.service.impl.UserServiceImpl;
 import com.yohomall.util.Util;
 
 public class test {
 
 	@Autowired
-	private UserServiceImpl  uservice;
+	private UserServiceImpl  userService;
 	
 	/**
 	 * 用户注册
@@ -44,15 +43,31 @@ public class test {
 //	@Test
 //	public void check() throws existException{
 //		
-//			User  u =  new User();
-//			u=uservice.checkEmail("470808@qq.com");
+//			boolean flag = false;
+//			flag=userService.checkEmail("470808@qq.com");
+//			if(flag){
+//				System.out.println("邮箱已存在");
+//			}else{
+//				System.out.println("可用");
+//			}
 //		
 //	}
-	
-	//用户登录
+//	
+//	//用户登录
 	@Test
-	public void login(){
-		uservice.login("ad@163.com", "123");
+	public void login() throws NoSuchAlgorithmException{
+		User u  = new User();
+		u = userService.login("8195@qq.com", "0000");
+		if(u!=null){
+			if(Util.getMD5("000").equals(u.getPassword())){
+				System.out.println("登录成功");
+				System.out.println(Util.getMD5("0000"));
+				System.out.println(u.getPassword());
+			}else {
+				System.out.println("密码错误");
+			}
+		}
+		
 	}
 	
 	@Before
@@ -60,7 +75,7 @@ public class test {
 		ApplicationContext context=new ClassPathXmlApplicationContext("root-context.xml");
 		//ApplicationContext context1=new ClassPathXmlApplicationContext("root-context.xml");
 		//service=context.getBean("service",ProductServiceImpl.class);
-		uservice = context.getBean("uservice",UserServiceImpl.class);
+		userService = context.getBean("userService",UserServiceImpl.class);
 		
 	}
 }

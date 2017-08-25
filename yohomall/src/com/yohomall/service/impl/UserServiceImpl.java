@@ -29,25 +29,12 @@ public class UserServiceImpl implements UserService {
 	 * @see com.yohomall.service.UserService#login(java.lang.String,
 	 * java.lang.String)
 	 */
-	// ÓÃ»§µÇÂ¼
-	@Override
-	public User login(String email, String password) {
-		User u = new User();
-		boolean flag= userMapper.findByEmail(email);
-		if (flag == true) {
-			System.out.println("ÇëÏÈ×¢²á");
-		}  else {
-			System.out.println("µÇÂ¼Ê§°Ü");
-		}
-		return u;
-
-	}
 
 	// ÑéÖ¤ÓÊÏäÊÇ·ñ´æÔÚ
 	@Override
 	public boolean checkEmail(String email) throws existException {
-		userMapper.findByEmail(email);
-		return true;
+		
+		return userMapper.findByEmail(email);
 	}
 
 	// ×¢²á
@@ -60,6 +47,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int update(User u) {
 		return userMapper.update(u);
+		
+	}
+
+	@Override
+	public User login(String email, String password) {
+		
+		return userMapper.find(email);
 	}
 
 }

@@ -14,6 +14,7 @@
 	</head>
 
 	<body>
+		
 	<div class="container-fluid">
 		<%@include file="/jsp/head.jsp" %>
 

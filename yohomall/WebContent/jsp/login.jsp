@@ -112,10 +112,10 @@ font {
 	
 	<div class="col-md-5">
 				<div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
-				<font>会员登录</font>USER LOGIN ${msg }
+				<font>会员登录</font>USER LOGIN ${message }
 
 				<div>&nbsp;</div>
-<form class="form-horizontal" action="${pageContext.request.contextPath }/user.action" method="post">
+<form class="form-horizontal" action="${pageContext.request.contextPath }/login.action" method="post">
 	<input type="hidden" name="method" value="login">
   
  <div class="form-group">

@@ -12,14 +12,18 @@
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
 						
-
-							<li><a href="${pageContext.request.contextPath }/jsp/login.jsp">登录</a></li>
-							<li><a href="${pageContext.request.contextPath }/jsp/register.jsp">注册</a></li>
+						<c:if test="${empty user }">
+							<li><a href="${pageContext.request.contextPath }/loginUI.action">登录</a></li>
+							<li><a href="${pageContext.request.contextPath }/registerUI.action">注册</a></li>
+						</c:if>
+						<c:if test="${not empty user }">
+							姓名：${user.uname } 欢迎你
+							<li><a href="${pageContext.request.contextPath }/order.action">我的订单</a></li>
+							<li><a href="${pageContext.request.contextPath }/loginOut.action">退出</a></li>
+						</c:if>
 						
-						
-						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li>
 
-							
+						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li>	
 						
 						
 							<%-- <li><a href="${pageContext.request.contextPath }/order?method=findMyOrdersByPage&pageNumber=1">我的订单</a></li>
