@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
 	// 验证邮箱是否存在
 	@Override
-	public boolean checkEmail(String email) throws existException {
+	public int checkEmail(String email) throws existException {
 		
 		return userMapper.findByEmail(email);
 	}
