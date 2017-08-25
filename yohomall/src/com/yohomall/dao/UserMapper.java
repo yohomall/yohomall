@@ -13,8 +13,8 @@ public interface UserMapper {
 	 * @param email
 	 * @return
 	 */
-	@Select("select * from user where email=#{email} limit 1")
-	boolean findByEmail(String email);
+	@Select("select count(*) from user where email=#{email} limit 1")
+	int findByEmail(String email);
 
 	/**
 	 * 

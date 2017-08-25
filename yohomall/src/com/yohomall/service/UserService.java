@@ -26,7 +26,7 @@ public interface UserService {
 	 * @return
 	 * @throws existException
 	 */
-	boolean checkEmail(String email) throws existException;
+	int checkEmail(String email) throws existException;
 
 	/**
 	 * 

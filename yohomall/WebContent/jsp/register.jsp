@@ -44,7 +44,17 @@ font {
 					$('#email').next().text(data);
  		});
  	});
+ 		
+ 		$('#email').on('focus',function(){
+ 			$('#email').next().text(' ');
+ 		})
  });
+ 	
+ /* 	$(function(){
+ 		$('#email').on('focus',function(){
+ 			$('#email').next().next().text().remove();
+ 		});
+ 	}); */
  </script>
 </head>
 <body>
@@ -72,7 +82,7 @@ font {
 			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 			    <div class="col-sm-6">
 			      <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-			      <span style="background-color: red;"></span>
+			      <span id="msg" style="background-color: red;"></span>
 			    </div>
 			  </div>
 			   <div class="form-group">
