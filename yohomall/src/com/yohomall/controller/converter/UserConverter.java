@@ -11,12 +11,11 @@ public class UserConverter implements Converter<String, Date>{
 	@Override
 	public Date convert(String resouce) {
 		//将字符串转成日期类型
-		SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			//转换成功返回
 			return simpleDateFormat.parse(resouce);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//转换失败返回null

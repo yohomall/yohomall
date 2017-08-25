@@ -37,6 +37,9 @@ public interface UserMapper {
 	 * @param u
 	 * @return
 	 */
-	@Update("update user set password=#{password},sex=#{sex},birthday=#{birthday},nickname=#{nickname} where uid = #{uid}")
+	@Update("update user set sex=#{sex},birthday=#{birthday},nickname=#{nickname} where uid = #{uid}")
 	int update(User u);
+	
+	@Select("select * from user where uid=#{uid}")
+	User findById(int id);
 }

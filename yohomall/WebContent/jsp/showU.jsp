@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 	<head></head>
@@ -35,13 +35,7 @@ font {
 }
  </style>
 </head>
-<script type="text/javascript">
-	$(function(){
-		$('button').on('click',function(){
-			location.href="${pageContext.request.contextPath }/editUI.action";
-		});
-	});
-</script>
+
 <body>
 <%@ include file="/jsp/head.jsp" %>
 
@@ -55,8 +49,7 @@ font {
 
 	<div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
 		<font>我的信息</font>
-		 <form class="form-horizontal" style="margin-top:5px;" method="post" action="${pageContext.request.contextPath }/edit.action">
-		<input type="hidden" name="uid" value="${user.uid }">
+		 <form class="form-horizontal" style="margin-top:5px;">
 			 <div class="form-group">
 			    <label for="username" class="col-sm-2 control-label">姓名</label>
 			    <div class="col-sm-6">
@@ -66,7 +59,7 @@ font {
 			    <div class="form-group">
 			    <label for="inputEmail3" class="col-sm-2 control-label">性别</label>
 			    <div class="col-sm-6">
-			    	 <input type="text" class="form-control" id="sex"  name="sex" value="${user.sex }">
+			    	<input type="text" class="form-control" id="sex"  name="sex" value="${user.sex }">
 			    </div>
 			  </div>
 			   <div class="form-group">
@@ -112,13 +105,9 @@ font {
 			  </div> --%>
 			 
 			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <input type="submit"  width="100" value="保存" name="submit" border="0"
-				    style="background: url('${pageContext.request.contextPath}/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-				    height:35px;width:100px;color:white;">
-			    </div>
+			   <a style="background: url('${pageContext.request.contextPath}/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);" href="${pageContext.request.contextPath }/editUI.action">编辑</a>
 			  </div>
-			 </form>
+			</form> 
 	</div>
 	
 <div class="col-md-2"></div>
@@ -145,7 +134,7 @@ font {
 			</ul>
 		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016  版权所有
+			Copyright &copy; 2005-2016 传智商城 版权所有
 		</div>
 
 </body></html>

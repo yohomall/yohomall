@@ -42,10 +42,6 @@ public interface UserService {
 	 */
 	int update(User u);
 	
-	/**
-	 * 
-	 * @param email
-	 * @return
-	 */
+	User findById(int id);
 	
 }

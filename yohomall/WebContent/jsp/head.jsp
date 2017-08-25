@@ -18,7 +18,7 @@
 						</c:if>
 						<c:if test="${not empty user }">
 							姓名：${user.uname } 欢迎你
-							<li><a href="${pageContext.request.contextPath }/editUI.action">我的信息</a></li>
+							<li><a href="${pageContext.request.contextPath }/showUI.action?uid=${user.uid}">我的信息</a></li>
 							<li><a href="${pageContext.request.contextPath }/order.action">我的订单</a></li>
 							
 							<li><a href="${pageContext.request.contextPath }/loginOut.action">退出</a></li>

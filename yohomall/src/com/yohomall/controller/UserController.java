@@ -74,12 +74,17 @@ public class UserController {
 		return "redirect:index.action";
 	}
 	
+	@RequestMapping(value = "showUI", method = RequestMethod.GET)
+	public String showUI(int uid,Model m) {
+		return "showU";
+
+	}
+	
 	@RequestMapping(value = "editUI", method = RequestMethod.GET)
 	public String editUI() {
 		return "editU";
 
 	}
-	
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String edit(User u) throws NoSuchAlgorithmException {
 		
