@@ -50,7 +50,7 @@ public class UserController {
 		u.setPassword(Util.getMD5(u.getPassword()));
 		userService.register(u);
 		
-		return "index";
+		return "redirect:index.action";
 		
 	}
 	

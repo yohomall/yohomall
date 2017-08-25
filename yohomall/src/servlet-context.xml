@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	<context:component-scan base-package="com.yohomall.controller"></context:component-scan>
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 	<!-- <mvc:resources mapping="/resources/**" location="/resources/" /> -->
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -14,15 +14,15 @@
    	 	<property name="suffix" value=".jsp"/>
 	</bean>
 	<!--自定义绑定参数  -->
-	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-		转换器 
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- 转换器  -->
 		<property name="converters">
 			<list>
-				日期类型转换 
-				<bean class="com.newer.controller.converter.MemberConverter"/>
+				<!-- 日期类型转换  -->
+				<bean class="com.yohomall.controller.converter.UserConverter"/>
 			</list>
 		</property>
-	</bean> -->
+	</bean>
 	
 	
 </beans>
