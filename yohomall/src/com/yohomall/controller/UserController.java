@@ -29,6 +29,7 @@ public class UserController {
 
 	@RequestMapping(value = "registerUI", method = RequestMethod.GET)
 	public String registerUI() throws NoSuchAlgorithmException {
+		
 		return "register";
 
 	}
@@ -37,7 +38,10 @@ public class UserController {
 	public String register(User u) throws NoSuchAlgorithmException {
 		u.setPassword(Util.getMD5(u.getPassword()));
 		userService.register(u);
+
+		
 		return "redirect:index.action";
+		
 
 	}
 

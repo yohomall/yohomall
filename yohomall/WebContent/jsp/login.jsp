@@ -35,7 +35,10 @@ font {
  </style>
 </head>
 <body>
-	<%@ include file="/jsp/head.jsp" %>
+
+	
+	<%@include file="/jsp/head.jsp" %>
+
 			<!--
             	时间：2015-12-30
             	描述：导航条
@@ -75,6 +78,7 @@ font {
 					<!-- /.container-fluid -->
 				</nav>
 			</div>
+
 
 	
 	
