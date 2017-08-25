@@ -13,16 +13,7 @@
 		<property name="prefix" value="/jsp/"/>
    	 	<property name="suffix" value=".jsp"/>
 	</bean>
-	<!--自定义绑定参数  -->
-	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-		转换器 
-		<property name="converters">
-			<list>
-				日期类型转换 
-				<bean class="com.newer.controller.converter.MemberConverter"/>
-			</list>
-		</property>
-	</bean> -->
+
 	
 	
 </beans>

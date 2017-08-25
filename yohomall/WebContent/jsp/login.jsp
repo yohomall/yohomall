@@ -94,7 +94,7 @@ font {
 
 				<div>&nbsp;</div>
 <form class="form-horizontal" action="${pageContext.request.contextPath }/login.action" method="post">
-	<input type="hidden" name="method" value="login">
+	
   
  <div class="form-group">
     <label for="username" class="col-sm-2 control-label">用户邮箱</label>

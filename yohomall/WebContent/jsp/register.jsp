@@ -71,7 +71,7 @@ font {
 	<div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
 		<font>会员注册</font>USER REGISTER
 		<form class="form-horizontal" style="margin-top:5px;" method="post" action="${pageContext.request.contextPath }/regist.action">
-			<input type="hidden" name="method" value="regist">
+			
 			 <div class="form-group">
 			    <label for="username" class="col-sm-2 control-label">姓名</label>
 			    <div class="col-sm-6">

@@ -69,6 +69,20 @@ public class UserController {
 		}
 		return "redirect:index.action";
 	}
+	
+	@RequestMapping(value = "editUI", method = RequestMethod.GET)
+	public String editUI() {
+		return "editU";
+
+	}
+	
+	@RequestMapping(value = "edit", method = RequestMethod.POST)
+	public String edit(User u) throws NoSuchAlgorithmException {
+		
+		userService.update(u);
+		return "redirect:index.action";
+
+	}
 
 	@RequestMapping(value = "loginOut", method = RequestMethod.GET)
 	public String loginOut(HttpServletRequest req, HttpServletResponse res)
