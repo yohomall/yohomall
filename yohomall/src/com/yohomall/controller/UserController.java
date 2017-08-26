@@ -2,6 +2,8 @@ package com.yohomall.controller;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +24,7 @@ import com.yohomall.util.Util;
 public class UserController {
 	@Resource(name = "userService")
 	private UserServiceImpl userService;
+
 	@RequestMapping(value = "loginUI", method = RequestMethod.GET)
 	public String loginUI() {
 		return "login";
@@ -29,7 +32,7 @@ public class UserController {
 
 	@RequestMapping(value = "registerUI", method = RequestMethod.GET)
 	public String registerUI() throws NoSuchAlgorithmException {
-		
+
 		return "register";
 
 	}
@@ -39,22 +42,28 @@ public class UserController {
 		u.setPassword(Util.getMD5(u.getPassword()));
 		userService.register(u);
 
-		
 		return "redirect:index.action";
-		
 
 	}
 
 	@RequestMapping(value = "check", method = RequestMethod.GET)
-	public void check(String email, HttpServletResponse res) throws Exception  {
-		Integer flag = userService.checkEmail(email);
-		 
-		if (flag!=null && flag.intValue()>0) {
-			String message = "邮箱已注册，重新输入";
+	public void check(String email, HttpServletResponse res) throws Exception {
+		String patter = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+		Pattern regex = Pattern.compile(patter);
+		Matcher matcher = regex.matcher(email);
+		boolean isMatched = matcher.matches();
+		if (isMatched) {
+			Integer flag = userService.checkEmail(email);
+			if (flag != null && flag.intValue() > 0) {
+				String message = "邮箱已注册，重新输入";
+				res.setCharacterEncoding("UTF-8");
+				res.getWriter().println(message);
+			}
+		} else {
+			String message = "请输入正确的邮箱格式";
 			res.setCharacterEncoding("UTF-8");
 			res.getWriter().println(message);
 		}
-
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
@@ -73,21 +82,22 @@ public class UserController {
 		}
 		return "redirect:index.action";
 	}
-	
+
 	@RequestMapping(value = "showUI", method = RequestMethod.GET)
-	public String showUI(int uid,Model m) {
+	public String showUI(int uid, Model m) {
 		return "showU";
 
 	}
-	
+
 	@RequestMapping(value = "editUI", method = RequestMethod.GET)
 	public String editUI() {
 		return "editU";
 
 	}
+
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String edit(User u) throws NoSuchAlgorithmException {
-		
+
 		userService.update(u);
 		return "redirect:index.action";
 
