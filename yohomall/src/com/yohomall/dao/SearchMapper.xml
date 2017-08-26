@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.yohomall.dao.SearchMapper.java">
+   <select id="searchProductByCategory" resultMap="product-result" parameterType="string">
+
+   </select>
+   <resultMap type="com.yohomall.pojo.Products" id="product-result">
+     <id property="pid" column="pid" />
+     <result property="pname" column="pname"/>
+     <result property="price" column="price"/>
+     <result property="sellingprice" column="sellingprice"/>
+     <result property="tid" column="tid"/>
+      <result property="sex" column="sex"/>
+   </resultMap>
+  </mapper>  

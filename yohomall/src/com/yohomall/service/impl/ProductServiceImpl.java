@@ -41,4 +41,10 @@ public class ProductServiceImpl implements  ProductService{
 		return productMapper.getByPage(tid, StartIndex, pageSize);
 	}
 
+	@Override
+	public List<Product> seek(String name) throws Exception {
+		List<Product> list = productMapper.seek(name);
+		return list;
+	}
+
 }

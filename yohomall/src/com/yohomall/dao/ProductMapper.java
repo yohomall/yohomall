@@ -20,4 +20,7 @@ public interface ProductMapper {
 	
 	List<Product> getByPage(@Param("tid") Integer tid,@Param("StartIndex")Integer StartIndex,
 			@Param("pageSize")Integer pageSize);
+	
+	 @Select("select * from products where pname like %${name}%")
+		List<Product> seek(String name);
 }

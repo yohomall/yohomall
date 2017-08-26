@@ -32,4 +32,12 @@ public interface ProductService {
 	 * @throws Exception
 	 */
 	List<Product> getByPage(Integer tid, Integer StartIndex, Integer pageSize) throws Exception;
+	
+	/**
+	 * 根据关键字查找
+	 * @param name
+	 * @return
+	 * @throws Exception
+	 */
+	List<Product> seek(String name) throws Exception;
 }
