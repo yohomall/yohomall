@@ -111,7 +111,7 @@
 				<!-- 判断是否是第一页 -->
 				<c:if test="${page.pageNum == 1 }">
 					<li class="disabled">
-						<a href="javascript:void(0)" aria-label="Previous">
+						<a href="javascript:void(0);" aria-label="Previous">
 							<span aria-hidden="true">&laquo;</span>
 						</a>
 					</li>
@@ -130,7 +130,7 @@
 				<c:forEach begin="1" end="${page.totalPage }" var = "n">
 					<!-- 判断是否是当前页 -->
 					<c:if test="${page.pageNum == n }">
-						<li class="active"><a href="javascript:void(0)">${n }</a></li>
+						<li class="active"><a href="javascript:void(0);">${n }</a></li>
 					</c:if>
 					<c:if test="${page.pageNum != n }">
 						<li><a href="${pageContext.request.contextPath}/product.action?&pageNum=${n}&tid=${param.tid}">${n }</a></li>
@@ -140,7 +140,7 @@
 				<!-- 判断是否是最后一页 -->
 				<c:if test="${page.pageNum == page.totalPage }">
 					<li  class="disabled">
-						<a href="javascript:void(0)" aria-label="Next">
+						<a href="javascript:void(0);" aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>
 						</a>
 					</li>

@@ -48,7 +48,7 @@
 					<div class="col-md-6">
 						<div><strong>${bean.pname }</strong></div>
 						<div style="border-bottom: 1px dotted #dddddd;width:350px;margin:10px 0 10px 0;">
-							<!-- <div>编号：751</div> -->
+							 <div>编号：${bean.pid }</div> 
 						</div>
 
 						<div style="margin:10px 0 10px 0;">商城价: <strong style="color:#ef0101;">￥：${bean.sellingprice }</strong> 市场 价： <del>￥${bean.price }</del>
@@ -58,12 +58,14 @@
 
 						<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
 							<!-- <div style="margin:5px 0 10px 0;">白色</div> -->
-
+							<form action="${pageContext.request.contextPath }/cart.action" name="cartForm" method="get">
+							<input type="hidden" value="${bean.pid }" name="pid">
 							<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">购买数量:
-								<input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text"> </div>
+								<input id="quantity" name="count" value="1" maxlength="4" size="10" type="text"> </div>
 
-							<div style="margin:20px 0 10px 0;;text-align: center;">
-								<a href="cart.htm">
+							<div style="margin:20px 0 10px 0;;text-align: center;"></div>
+							</form>
+								<a href="javascript:void(0)" onclick="subForm()">
 									<input style="background: url('${pageContext.request.contextPath}/images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
 								</a> 
 							</div>
@@ -157,5 +159,10 @@
 		</div>
 
 	</body>
-
+	<script type="text/javascript">
+		function subForm(){
+			document.cartForm.submit();
+		}
+	
+	</script>
 </html>

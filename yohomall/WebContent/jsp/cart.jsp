@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 
@@ -40,71 +41,17 @@
 	<body>
 
 		
-			<!--
-            	时间：2015-12-30
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.png" />
-				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.htm">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
-					</ol>
-				</div>
-			</div>
-			<!--
-            	时间：2015-12-30
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
+			<%@ include file="/jsp/head.jsp" %>
 
 
 		<div class="container">
 			<div class="row">
-
+					<c:if test="${empty cart || empty cart.cartItems }">
+						<h3>购物车空空如也~~~~,请先去逛逛吧!</h3>
+					</c:if>
+					<c:if test="${not empty cart.cartItems }">
 				<div style="margin:0 auto; margin-top:10px;width:950px;">
-					<strong style="font-size:16px;margin:5px 0;">订单详情</strong>
+					<strong style="font-size:16px;margin:5px 0;">购物车详情</strong>
 					<table class="table table-bordered">
 						<tbody>
 							<tr class="warning">
@@ -115,27 +62,29 @@
 								<th>小计</th>
 								<th>操作</th>
 							</tr>
+							<c:forEach items="${cart.cartItems }" var="bean">
 							<tr class="active">
 								<td width="60" width="40%">
 									<input type="hidden" name="id" value="22">
-									<img src="${pageContext.request.contextPath}/image/dadonggua.jpg" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/${bean.product.image}" width="70" height="60">
 								</td>
 								<td width="30%">
-									<a target="_blank"> 有机蔬菜      大冬瓜...</a>
+									<a target="_blank">${bean.product.pname }</a>
 								</td>
 								<td width="20%">
-									￥298.00
+									${bean.product.price }
 								</td>
 								<td width="10%">
-									<input type="text" name="quantity" value="1" maxlength="4" size="10">
+									<input type="text" name="count" value="${bean.count }" maxlength="4" size="10" readonly="readonly">
 								</td>
 								<td width="15%">
-									<span class="subtotal">￥596.00</span>
+									<span class="subtotal">￥${bean.subtotal }</span>
 								</td>
 								<td>
-									<a href="javascript:;" class="delete">删除</a>
+									<a href="javascript:void(0);" class="delete" onclick="removeFromcart('${bean.product.pid}')" >删除</a>
 								</td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
@@ -143,19 +92,17 @@
 
 			<div style="margin-right:130px;">
 				<div style="text-align:right;">
-					<em style="color:#ff6600;">
-				登录后确认是否享有优惠&nbsp;&nbsp;
-			</em> 赠送积分: <em style="color:#ff6600;">596</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥596.00元</strong>
+					 商品金额: <strong style="color:#ff6600;">￥${cart.total }</strong>
 				</div>
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
-					<a href="order_info.htm" id="clear" class="clear">清空购物车</a>
+					<a href="${pageContext.request.contextPath}/clear.action" id="clear" class="clear">清空购物车</a>
 					<a href="order_info.htm">
 						<input type="submit" width="100" value="提交订单" name="submit" border="0" style="background: url('${pageContext.request.contextPath}/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 						height:35px;width:100px;color:white;">
 					</a>
 				</div>
 			</div>
-
+		</c:if>
 		</div>
 
 		<div style="margin-top:50px;">
@@ -180,5 +127,13 @@
 		</div>
 
 	</body>
-
+	<script type="text/javascript">
+		function removeFromcart(pid){
+			if(confirm("您忍心抛弃我吗?")){
+				location.href="${pageContext.request.contextPath}/remove.action?pid="+pid;
+			}
+		}
+	
+	
+	</script>
 </html>

@@ -11,8 +11,8 @@ public class Product implements Serializable{
 	private Integer pid;
 	private String image;
 	private String pname;
-	private BigDecimal price;
-	private BigDecimal sellingprice;
+	private Double price;
+	private Double sellingprice;
 	private Integer  sex;
 	//商品类型
 	private Category category;
@@ -41,19 +41,19 @@ public class Product implements Serializable{
 		this.pname = pname;
 	}
 
-	public BigDecimal getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void Double(Double price) {
 		this.price = price;
 	}
 
-	public BigDecimal getSellingprice() {
+	public Double getSellingprice() {
 		return sellingprice;
 	}
 
-	public void setSellingprice(BigDecimal sellingprice) {
+	public void setSellingprice(Double sellingprice) {
 		this.sellingprice = sellingprice;
 	}
 
