@@ -24,11 +24,11 @@
 		<!-- <property name="driverClass" value="${driver}" />
 		<property name="jdbcUrl" value="${url}"/>
 		<property name="user" value="${username}"/>
-		<property name="password" value="${password}"/> -->
+		<property name="password" value="${password}"/> --> 
 		<property name="driverClass" value="#{propsReader[driver]}" />
 		<property name="jdbcUrl" value="#{propsReader[url]}"/>
 		<property name="user" value="#{propsReader[username]}"/>
-		<property name="password" value="#{propsReader[password]}"/>
+		<property name="password" value="#{propsReader[password]}"/> 
 		
 		<property name="minPoolSize" value="2"/>
 		<property name="maxPoolSize" value="20"/>

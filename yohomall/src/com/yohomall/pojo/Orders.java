@@ -2,6 +2,7 @@ package com.yohomall.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Orders implements Serializable {
 
@@ -17,6 +18,8 @@ public class Orders implements Serializable {
 	private Double total;
 	private Date time;
 	private Integer status;
+	private User user;
+	private List<Item> items;
 	public Integer getOid() {
 		return oid;
 	}
@@ -64,6 +67,18 @@ public class Orders implements Serializable {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<Item> getItems() {
+		return items;
+	}
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.yohomall.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,11 @@ public class OrdersServiceImpl implements OrdersService {
 	@Override
 	public int newOrder(Orders order) {
 		return ordersMapper.add(order);
+	}
+	@Override
+	public List<Orders> findOrderDetails() {
+		
+		return ordersMapper.findOrderDetails();
 	}
 
 }

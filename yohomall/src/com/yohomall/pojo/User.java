@@ -3,6 +3,7 @@ package com.yohomall.pojo;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 import com.yohomall.util.Util;
 
@@ -20,7 +21,7 @@ public class User implements Serializable{
 	
 	private String nickname;
 	
-	
+	private List<Orders> orders;
 	
 	public Integer getUid() {
 		return uid;
@@ -104,6 +105,18 @@ public class User implements Serializable{
 	public String getPassword() {
 		
 		return password;
+	}
+
+
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
 	}
 
 }
