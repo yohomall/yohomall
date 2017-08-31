@@ -18,7 +18,7 @@ public class OrdersTest {
 	@Test
 	public void add(){
 		Orders order = new Orders();
-		order.setUid(2);
+		//order.setUid(2);
 		order.setAddr("³¤É³");
 		order.setAname("yl");
 		order.setPhone("19761");

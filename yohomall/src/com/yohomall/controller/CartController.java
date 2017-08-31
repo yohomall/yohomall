@@ -1,13 +1,10 @@
 package com.yohomall.controller;
 
-import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.yohomall.pojo.Cart;
 import com.yohomall.pojo.CartItem;
 import com.yohomall.pojo.Product;
+import com.yohomall.pojo.User;
 import com.yohomall.service.impl.ProductServiceImpl;
 
+/**
+ * 购物车模块
+ * @author Administrator
+ *
+ */
 @Controller
 public class CartController {
 	@Autowired
@@ -30,6 +33,8 @@ public class CartController {
 	 */
 	@RequestMapping(value="cart", method=RequestMethod.GET)
 	public String add2cart(@RequestParam(value="pid") Integer pid,@RequestParam(value="count") int count,HttpServletRequest request) {
+		User user= (User) request.getSession().getAttribute("user");
+		
 		//1.封装cartitem
 		//调用service得到product
 		try {
@@ -42,6 +47,10 @@ public class CartController {
 			Cart cart=getCart(request);
 			
 			cart.add2cart(cartItem);
+			
+			if (user==null) {
+				cart.clearCart();
+			}
 			
 			return "redirect:/jsp/cart.jsp";
 		} catch (Exception e) {

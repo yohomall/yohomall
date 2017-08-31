@@ -15,7 +15,7 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
-	<context:component-scan base-package="com.**.service.impl,com.**.dao"></context:component-scan>
+	<context:component-scan base-package="com.**.service.impl"></context:component-scan>
 	<!-- <context:property-placeholder location="classpath:jdbc.properties"/> -->
 	
 	<util:properties id="propsReader" location="classpath:jdbc.properties"/>
@@ -51,24 +51,41 @@
 	</bean>
 	<!-- <mybatis-spring:scan base-package="com.**.mapper"/> -->
 	
-	
 	  <!--  配置事务管理  -->
    <bean id="transactionManager" 
    		class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
    		<property name="dataSource" 
    		    ref="dataSource"></property>		
    </bean>
-	<tx:annotation-driven/>
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	<!-- 通知 -->
+	<!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	
+	</tx:advice>
+	
+	<aop:config >
+		<aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.yohomall.service.impl.*.*(..))"/>
+		
+	</aop:config> -->
+	
+	
+	
 	<!-- 配置注解事务支持
 	<tx:annotation-driven/> -->
 	
-	<!-- 配置事务增强处理Bean，指定事务管理器 -->
-	<!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+	<!-- 配置事务增强处理Bean，指定事务管理器
+	 <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 	配置详细事务处理语义
 		<tx:attributes>
 			<tx:method name="insert*" propagation="REQUIRED" />
 			<tx:method name="update*" propagation="REQUIRED" />
 			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
 
 			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
 			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
@@ -85,11 +102,11 @@
 	<aop:config>
 		配置切入点
 		<aop:pointcut id="transactionPointcut"
-			expression="execution(* com.**.serviceImpl.*.*(..))" />
+			expression="execution(* com.**.service.impl.*.*(..))" />
 		指定在txAdvice切入点应用txAdvice事务增强处理
 		<aop:advisor pointcut-ref="transactionPointcut"
 			advice-ref="transactionAdvice" />
-	</aop:config> -->
+	</aop:config>  -->
 	
 </beans>
 

@@ -14,32 +14,16 @@ public class Orderitem implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-      private Product pid;
-      private Orders oid;
+	  private String itemid;
       private Integer quantity;
-      private List<Product>products;
-      
-	public Orderitem() {
-		
+      private Double subtotal;
+      private Product product;
+      private Orders order;
+	public String getItemid() {
+		return itemid;
 	}
-	public Orderitem(Product pid, Orders oid, Integer quantity, List<Product> products) {
-		super();
-		this.pid = pid;
-		this.oid = oid;
-		this.quantity = quantity;
-		this.products = products;
-	}
-	public Product getPid() {
-		return pid;
-	}
-	public void setPid(Product pid) {
-		this.pid = pid;
-	}
-	public Orders getOid() {
-		return oid;
-	}
-	public void setOid(Orders oid) {
-		this.oid = oid;
+	public void setItemid(String itemid) {
+		this.itemid = itemid;
 	}
 	public Integer getQuantity() {
 		return quantity;
@@ -47,11 +31,23 @@ public class Orderitem implements Serializable {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public List<Product> getProducts() {
-		return products;
+	public Double getSubtotal() {
+		return subtotal;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setSubtotal(Double subtotal) {
+		this.subtotal = subtotal;
 	}
-      
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public Orders getOrder() {
+		return order;
+	}
+	public void setOrder(Orders order) {
+		this.order = order;
+	}
+	
 }

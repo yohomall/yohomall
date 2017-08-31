@@ -29,7 +29,7 @@ public class CartItem implements Serializable{
 		this.count = count;
 	}
 	public Double getSubtotal() {
-		return product.getPrice()*count;
+		return product.getSellingprice()*count;
 	}
 	/*public void setSubtotal(Double subtotal) {
 		this.subtotal = subtotal;

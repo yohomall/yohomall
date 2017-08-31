@@ -66,6 +66,7 @@ public class ProductController {
 		
 		return  "product_info";
 	}
+	
 	@RequestMapping(value="seek")
 	public String getSeek(String name,Model model) throws Exception{
 		List<Product> list = service.seek(name);
