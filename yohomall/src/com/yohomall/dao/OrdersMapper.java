@@ -3,6 +3,9 @@ package com.yohomall.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+
+
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.core.annotation.Order;
@@ -15,11 +18,11 @@ import com.yohomall.pojo.Product;
 public interface OrdersMapper {
 	
 	
-	Orders findById(int oid);
 	
 	@Insert("insert into Orders(uid,addr,aname,phone,total,time,status) values(#{uid},#{addr},#{aname},#{phone},#{total},#{time},#{status})")
 	int add(Orders order);
 	
+
 	@Insert("insert into orders(oid,uid,addr,aname,phone,total,time,status) values(#{oid},#{user.uid},#{addr},#{aname},#{phone},#{total},#{time},#{status})")
 	void save(Orders order);
 	
@@ -37,4 +40,7 @@ public interface OrdersMapper {
 	
 	@Update("update orders set addr=#{addr},aname=#{aname},phone=#{phone},status=#{status} where oid=#{oid}")
 	void update(Orders order);
+
+	List<Orders> findOrderDetails();
+
 }

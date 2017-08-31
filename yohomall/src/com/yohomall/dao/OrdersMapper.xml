@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yohomall.dao.OrdersMapper">
+
     
     <select id="getTotalRecord" resultType="int">
     	SELECT COUNT(*) FROM orders WHERE uid=#{uid}
@@ -26,4 +27,41 @@
     
     </select>
     
+
+	<resultMap type="Orders" id="orders-result">
+		<id property="oid" column="oid" />
+		<result property="addr" column="addr" />
+		<result property="aname" column="aname" />
+		<result property="phone" column="phone" />
+		<result property="total" column="total" />
+		<result property="time" column="time" />
+		<result property="status" column="status" />
+		<association property="user" column="uid" javaType="User"
+			resultMap="user-result" />
+		<collection property="items" ofType="Item" resultMap="orderitem-result"></collection>
+	</resultMap>
+	
+	<resultMap type="User" id="user-result">
+		<id property="uid" column="uid" />
+		<collection property="orders" ofType="Orders" resultMap="orders-result" />
+	</resultMap>
+	
+	<resultMap type="Item" id="orderitem-result">
+		<id property="oid" column="oid" />
+		<result property="pid" column="pid" />
+		<result property="quantity" column="quantity" />
+		<collection property="product" ofType="Product" resultMap="product-result" />
+	</resultMap>
+	
+	<resultMap type="Product" id="product-result">
+		<id property="pid" column="pid" />
+		<result property="pname" column="pname" />
+	</resultMap>
+	
+	<select id="findOrderDetails" resultMap="orders-result">
+	    select o.*, p.pname,m.quantity  from orderitem m
+		left join orders o on m.oid = o.oid
+		left join products p on m.pid = p.pid
+	</select>
+
 </mapper>

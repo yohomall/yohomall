@@ -27,6 +27,7 @@ public class OrdersServiceImpl implements OrdersService {
 	public int newOrder(Orders order) {
 		return ordersMapper.add(order);
 	}
+
 	
 	@Transactional
 	@Override
@@ -83,5 +84,12 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 
 	
+
+	@Override
+	public List<Orders> findOrderDetails() {
+		
+		return ordersMapper.findOrderDetails();
+	}
+
 
 }

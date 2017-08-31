@@ -1,6 +1,7 @@
 package com.yohomall.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Item implements Serializable{
 
@@ -11,6 +12,7 @@ public class Item implements Serializable{
 	private int pid;
 	private int oid;
 	private int quantity;
+	private List<Product> product;
 	public int getPid() {
 		return pid;
 	}
@@ -29,6 +31,12 @@ public class Item implements Serializable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+	public List<Product> getProduct() {
+		return product;
+	}
+	public void setProduct(List<Product> product) {
+		this.product = product;
+	}
+
 	
 }

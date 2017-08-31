@@ -2,8 +2,10 @@ package com.yohomall.service;
 
 import java.util.List;
 
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.core.annotation.Order;
+
 
 import com.yohomall.pojo.Orders;
 import com.yohomall.pojo.OrdersVo;
@@ -11,7 +13,7 @@ import com.yohomall.pojo.OrdersVo;
 public interface OrdersService {
 	
 	int newOrder(Orders order);
-	
+
 	void save(Orders order) throws Exception;
 	
 	int getTotalRecord(Integer uid) throws Exception;
@@ -37,4 +39,7 @@ public interface OrdersService {
 	 * @throws Exception
 	 */
 	void update(Orders order)throws Exception;
+
+	List<Orders> findOrderDetails();
+
 }
