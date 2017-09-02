@@ -13,7 +13,8 @@
 		<property name="prefix" value="/jsp/"/>
    	 	<property name="suffix" value=".jsp"/>
 	</bean>
-
+	
+	
 	<!--自定义绑定参数  -->
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<!-- 转换器  -->

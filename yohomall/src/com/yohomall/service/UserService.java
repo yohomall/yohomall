@@ -1,5 +1,7 @@
 package com.yohomall.service;
 
+import java.util.List;
+
 import com.yohomall.pojo.User;
 import com.yohomall.service.exception.InvalidNameException;
 import com.yohomall.service.exception.InvalidPasswordException;
@@ -43,5 +45,9 @@ public interface UserService {
 	int update(User u);
 	
 	User findById(int id);
+	
+	int getTotalRecord()throws Exception; 
+	
+	List<User> getByPage(Integer StartIndex, Integer pageSize);
 	
 }

@@ -1,6 +1,9 @@
 package com.yohomall.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -42,4 +45,10 @@ public interface UserMapper {
 	
 	@Select("select * from user where uid=#{uid}")
 	User findById(int id);
+	
+	@Select("select count(*) from user")
+	int getTotal();
+	
+	@Select("select * from user limit #{StartIndex},#{pageSize}")
+	List<User> getByPage(@Param("StartIndex")Integer StartIndex,@Param("pageSize")Integer pageSize);
 }

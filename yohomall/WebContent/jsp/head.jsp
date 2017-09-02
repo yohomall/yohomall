@@ -19,7 +19,7 @@
 						<c:if test="${not empty user }">
 							姓名：${user.uname } 欢迎你
 							<li><a href="${pageContext.request.contextPath }/showUI.action?uid=${user.uid}">我的信息</a></li>
-							<li><a href="${pageContext.request.contextPath }/order.action">我的订单</a></li>
+							<li><a href="${pageContext.request.contextPath }/order.action?uid=${user.uid}">我的订单</a></li>
 							
 							<li><a href="${pageContext.request.contextPath }/loginOut.action">退出</a></li>
 						</c:if>
@@ -57,9 +57,9 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav" id="c_ul">
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form action="seek.action" method="post" class="navbar-form navbar-right" role="search">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+									<input id="pname" type="text" class="form-control" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>
