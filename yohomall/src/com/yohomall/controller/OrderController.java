@@ -1,16 +1,13 @@
 package com.yohomall.controller;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +19,6 @@ import com.yohomall.pojo.CartItem;
 import com.yohomall.pojo.Orderitem;
 import com.yohomall.pojo.Orders;
 import com.yohomall.pojo.User;
-import com.yohomall.service.OrdersService;
 import com.yohomall.service.impl.OrdersServiceImpl;
 import com.yohomall.util.ContantUtil;
 import com.yohomall.util.PageUtil;
@@ -83,7 +79,7 @@ public class OrderController {
 			//将orderitem加入orders的orderitems中
 			order.getOrderitems().add(orderitem);
 		}
-		
+	
 		oservice.save(order);
 		//清空购物车
 		cart.clearCart();
@@ -244,7 +240,7 @@ public class OrderController {
 					// 浏览器重定向
 					System.out.println("111");
 					request.setAttribute("msg", "您的订单号为:"+r6_Order+",金额为:"+r3_Amt+"已经支付成功,等待发货~~");
-					
+					 
 				} else if (r9_BType.equals("2")) {
 					// 服务器点对点 --- 支付公司通知你
 					System.out.println("付款成功！222");
@@ -254,7 +250,7 @@ public class OrderController {
 				}
 				
 				//修改订单状态
-				
+				              
 				Orders order = oservice.getByID(r6_Order);
 				order.setStatus(ContantUtil.ORDER_YIFUKUAN);
 				

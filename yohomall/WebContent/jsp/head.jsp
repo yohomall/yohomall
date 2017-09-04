@@ -57,9 +57,9 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav" id="c_ul">
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form action="seek.action" method="post" class="navbar-form navbar-right" role="search">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+									<input class="seek" type="pname" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>

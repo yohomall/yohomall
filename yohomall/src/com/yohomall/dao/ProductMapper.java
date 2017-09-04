@@ -3,7 +3,6 @@ package com.yohomall.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import com.yohomall.pojo.Product;
 
@@ -21,6 +20,5 @@ public interface ProductMapper {
 	List<Product> getByPage(@Param("tid") Integer tid,@Param("StartIndex")Integer StartIndex,
 			@Param("pageSize")Integer pageSize);
 	
-	 @Select("select * from products where pname like %${name}%")
-		List<Product> seek(String name);
+		List<Product> seek(@Param("pname") String pname);
 }

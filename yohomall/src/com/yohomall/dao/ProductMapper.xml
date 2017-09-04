@@ -27,7 +27,11 @@
 	<select id="getTotalRecord" resultType="int">
 		select count(*) from products where tid=#{tid}
 	
-	</select>	
+	</select>
+	
+	<select id="seek" resultType="com.yohomall.pojo.Product">
+	     select * from products where pname like %#{pname}%
+	</select>
 	
 	<select id="getByPage" resultType="com.yohomall.pojo.Product">
 		SELECT * FROM products WHERE tid=#{tid} LIMIT #{StartIndex},#{pageSize}
