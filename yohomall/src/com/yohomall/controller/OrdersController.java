@@ -23,7 +23,7 @@ public class OrdersController {
 	public String findOrder(int uid,Model m){
 		List<Orders> orders = oService.findUserOrder(uid);
 		m.addAttribute("order", orders);
-		return "order_list";
+		return "/jsp/order_list";
 		
 	}
 	@RequestMapping(value="detail", method=RequestMethod.GET)
@@ -31,7 +31,7 @@ public class OrdersController {
 		Orders os = oService.findOrderDetails(oid);
 			List<Item> im =os.getItems();
 			m.addAttribute("item", im);
-			return "order_info";
+			return "/jsp/order_info";
 		
 	}
 }

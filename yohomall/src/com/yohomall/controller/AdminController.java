@@ -15,13 +15,13 @@ import com.yohomall.service.impl.AdminServiceImpl;
 public class AdminController {
 	@Autowired
 	private AdminServiceImpl adService;
-	@RequestMapping(value="loginUI/admin",method = RequestMethod.GET)
+	@RequestMapping(value="/adminLoginUI",method = RequestMethod.GET)
 	public String admin(){
 		return "admin/index";
 		
 	}
 	
-	@RequestMapping(value="admin/login",method=RequestMethod.POST)
+	@RequestMapping(value="/adminLogin",method=RequestMethod.POST)
 	public String login(String username,String password,HttpSession session,Model m){
 		Admin ad = adService.login(username);
 		if(ad!=null){

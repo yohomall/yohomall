@@ -84,7 +84,7 @@ font {
     <input type="submit"  width="100" value="登录" name="submit" border="0"
     style="background: url('${pageContext.request.contextPath}/images/login.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     height:35px;width:100px;color:white;">
-    <span style="float: none;"><a href="${pageContext.request.contextPath}/loginUI/admin.action">管理员登录>>></a></span>
+    <span style="float: none;"><a href="${pageContext.request.contextPath}/adminLoginUI.action">管理员登录>>></a></span>
     </div>
   </div>
 </form>

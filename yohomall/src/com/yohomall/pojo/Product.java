@@ -2,6 +2,7 @@ package com.yohomall.pojo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Product implements Serializable{
 	/**
@@ -16,7 +17,7 @@ public class Product implements Serializable{
 	private Integer  sex;
 	//商品类型
 	private Category category;
-
+	private List<Item> items;
 	public Integer getPid() {
 		return pid;
 	}
@@ -72,4 +73,17 @@ public class Product implements Serializable{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
 }

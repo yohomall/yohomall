@@ -45,8 +45,8 @@ TH {
 							<td width="85%" align="left">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<font color="#000000"> <script language="JavaScript">
-<!--
-tmpDate = new Date();
+
+/* tmpDate = new Date();
 date = tmpDate.getDate();
 month= tmpDate.getMonth() + 1 ;
 year= tmpDate.getYear();
@@ -72,8 +72,8 @@ document.write(myArray[weekday])
 }
 else
 {document.write(myArray[weekday])
-};
-// -->
+}; */
+
 									</script> </font>
 							</td>
 							<td width="15%">
@@ -87,7 +87,7 @@ else
 										</td>
 										<td width="155" valign="bottom"
 											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
-											用户名：
+											用户名：${admin.username }
 											<font color="blue"><s:property value="#session.existAdminUser.username"/></font>
 										</td>
 										<td width="10" align="right"

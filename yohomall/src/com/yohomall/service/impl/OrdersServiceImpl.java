@@ -18,10 +18,17 @@ public class OrdersServiceImpl implements OrdersService {
 	public int newOrder(Orders order) {
 		return ordersMapper.add(order);
 	}
+
 	@Override
-	public List<Orders> findOrderDetails() {
+	public Orders findOrderDetails(int oid) {
 		
-		return ordersMapper.findOrderDetails();
+		return ordersMapper.findById(oid);
+	}
+
+	@Override
+	public List<Orders> findUserOrder(int uid) {
+		
+		return ordersMapper.findByUid(uid);
 	}
 
 }

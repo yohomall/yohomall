@@ -31,7 +31,6 @@
 	
 	<select id="getByPage" resultType="com.yohomall.pojo.Product">
 		SELECT * FROM products WHERE tid=#{tid} LIMIT #{StartIndex},#{pageSize}
-		
 	</select>
 	
 	<select id="getById" resultType="com.yohomall.pojo.Product">
