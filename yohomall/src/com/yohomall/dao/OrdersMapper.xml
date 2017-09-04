@@ -2,6 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yohomall.dao.OrdersMapper">
+
+    
+    <select id="getTotalRecord" resultType="int">
+    	SELECT COUNT(*) FROM orders WHERE uid=#{uid}
+    </select>
+    
+    <select id="getMyOrdersByPage" resultType="com.yohomall.pojo.Orders">
+    	
+    	SELECT * FROM orders WHERE uid=#{uid} ORDER BY time DESC LIMIT #{StartIndex},#{pageSize};
+    
+    </select>
+    
+    <select id="getMyOrderItem" resultType="com.yohomall.pojo.OrdersVo">
+    
+    SELECT oi.itemid,oi.pid,oi.oid,oi.quantity,oi.subtotal,p.image,p.pname,p.price,p.sellingprice FROM orderitem oi,products p 
+    WHERE oi.pid = p.pid AND oi.oid =#{oid};
+    
+    </select>
+    
+    <select id="getByID" resultType="com.yohomall.pojo.Orders">
+    
+   		 SELECT * FROM orders where oid=#{oid}
+    
+    </select>
+    
+
 	<resultMap type="Orders" id="orders-result">
 		<id property="oid" column="oid" />
 		<result property="uid" column="uid"/>
@@ -41,4 +67,5 @@
 		left join products p on m.pid = p.pid
 		where o.oid=#{oid}
 	</select>
+
 </mapper>

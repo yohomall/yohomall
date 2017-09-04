@@ -42,8 +42,8 @@ public class ProductServiceImpl implements  ProductService{
 	}
 
 	@Override
-	public List<Product> seek(String name) throws Exception {
-		List<Product> list = productMapper.seek(name);
+	public List<Product> seek(String pname) throws Exception {
+		List<Product> list = productMapper.seek(pname);
 		return list;
 	}
 

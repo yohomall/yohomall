@@ -19,7 +19,11 @@
 						<c:if test="${not empty user }">
 							姓名：${user.uname } 欢迎你
 							<li><a href="${pageContext.request.contextPath }/showUI.action?uid=${user.uid}">我的信息</a></li>
+<<<<<<< HEAD
 							<li><a href="${pageContext.request.contextPath }/order.action?uid=${user.uid}">我的订单</a></li>
+=======
+							<li><a href="${pageContext.request.contextPath }/MyOrders.action?pageNum=1">我的订单</a></li>
+>>>>>>> branch 'master' of https://github.com/yohomall/yohomall.git
 							
 							<li><a href="${pageContext.request.contextPath }/loginOut.action">退出</a></li>
 						</c:if>
@@ -59,7 +63,11 @@
 							</ul>
 							<form action="seek.action" method="post" class="navbar-form navbar-right" role="search">
 								<div class="form-group">
+<<<<<<< HEAD
 									<input id="pname" type="text" class="form-control" placeholder="Search">
+=======
+									<input class="seek" type="pname" placeholder="Search">
+>>>>>>> branch 'master' of https://github.com/yohomall/yohomall.git
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>

@@ -39,5 +39,5 @@ public interface ProductService {
 	 * @return
 	 * @throws Exception
 	 */
-	List<Product> seek(String name) throws Exception;
+	List<Product> seek(String pnames) throws Exception;
 }

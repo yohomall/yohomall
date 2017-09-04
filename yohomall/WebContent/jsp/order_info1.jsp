@@ -29,27 +29,6 @@
 	</head>
 
 	<body>
-<<<<<<< HEAD
-
-	<%@include file="/jsp/head.jsp" %>
-			<div align="center">
-				<form action="">
-					<table border="1">
-						<tr>
-							<td>订单编号</td>
-							<td>商品名</td>
-							<td>商品数量</td>
-							
-						</tr>
-						<c:forEach items="${item}" var="im">
-						<tr>
-							<th id="oid">${im.oid}</th> 
-							<th id="pname">${im.product.pname}</th>
-							<th id="quantity">${im.quantity}</th>
-							
-						</tr>
-					</c:forEach>
-=======
 	
 		<%@ include file="/jsp/head.jsp" %>
 			
@@ -80,32 +59,28 @@
 								<th>数量</th>
 								<th>小计</th>
 							</tr>
-							<c:forEach items="${bean.orderitems }" var="oi">
+							<c:forEach items="${bean.ordersVos }" var="ov">
 							<tr class="active">
 								<td width="60" width="40%">
 									
-									<img src="${pageContext.request.contextPath}/${oi.product.image}" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/${ov.image}" width="70" height="60">
 								</td>
 								<td width="30%">
-									<a target="_blank"> ${oi.product.pname}</a>
+									<a target="_blank"> ${ov.pname}</a>
 								</td>
 								<td width="20%">
-									￥${oi.product.sellingprice }
+									￥${ov.sellingprice }
 								</td>
 								<td width="10%">
-									${oi.quantity }
+									${ov.quantity }
 								</td>
 								<td width="15%">
-									<span class="subtotal">￥${oi.subtotal }</span>
+									<span class="subtotal">￥${ov.subtotal }</span>
 								</td>
 							</tr>
 						</c:forEach>
 						</tbody>
->>>>>>> branch 'master' of https://github.com/yohomall/yohomall.git
 					</table>
-<<<<<<< HEAD
-				</form>
-=======
 				</div>
 
 				<div style="text-align:right;margin-right:120px;">
@@ -173,12 +148,9 @@
 						</a>
 					</p>
 					<hr/>
-
+			
 				</div>
->>>>>>> branch 'master' of https://github.com/yohomall/yohomall.git
 			</div>
-<<<<<<< HEAD
-=======
 		</form>
 		</div>
 
@@ -202,7 +174,6 @@
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
 			Copyright &copy; 2005-2016 传智商城 版权所有
 		</div>
->>>>>>> branch 'master' of https://github.com/yohomall/yohomall.git
 
 	</body>
 

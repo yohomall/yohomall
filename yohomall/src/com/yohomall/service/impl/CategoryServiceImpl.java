@@ -7,7 +7,7 @@ import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.http.converter.json.GsonFactoryBean;
 import org.springframework.stereotype.Service;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import com.yohomall.dao.CategoryMapper;
 import com.yohomall.pojo.Category;
 import com.yohomall.service.CategoryService;
@@ -28,8 +28,8 @@ public class CategoryServiceImpl implements CategoryService{
 	public String findAll() throws Exception {
 		List<Category> list = findClist();
 		if (list!=null && list.size()>0) {
-			Gson gson = new Gson();
-			return gson.toJson(list).toString();
+			//Gson gson = new Gson();
+			//return gson.toJson(list).toString();
 		}
 		return null;
 	}
