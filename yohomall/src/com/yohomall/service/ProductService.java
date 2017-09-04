@@ -40,4 +40,10 @@ public interface ProductService {
 	 * @throws Exception
 	 */
 	List<Product> seek(String name) throws Exception;
+	
+	List<Product> findAllProduct()throws Exception;
+	
+	void saveProduct(Product product);
+	
+	 void removeProduct(Integer pid);
 }

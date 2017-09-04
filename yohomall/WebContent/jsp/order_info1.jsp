@@ -46,8 +46,8 @@
 								<th colspan="1">
 									<c:if test="${bean.status == 0 }">未付款</c:if>
 									<c:if test="${bean.status == 1 }">已付款</c:if>
-									<c:if test="${bean.status == 2 }">代发货</c:if>
-									<c:if test="${bean.status == 3 }">已收货</c:if>
+									<c:if test="${bean.status == 2 }">确认收货</c:if>
+									<c:if test="${bean.status == 3 }">已完成</c:if>
 								</th>
 								<th colspan="2">时间: <fmt:formatDate value="${bean.time }" pattern="yyyy-MM-dd HH:mm:ss"/></th>
 							</tr>
@@ -63,7 +63,7 @@
 							<tr class="active">
 								<td width="60" width="40%">
 									
-									<img src="${pageContext.request.contextPath}/${ov.image}" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/pictrue/${ov.image}" width="70" height="60">
 								</td>
 								<td width="30%">
 									<a target="_blank"> ${ov.pname}</a>

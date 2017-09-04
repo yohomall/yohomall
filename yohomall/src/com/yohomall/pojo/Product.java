@@ -41,11 +41,12 @@ public class Product implements Serializable{
 		this.pname = pname;
 	}
 
+
 	public Double getPrice() {
 		return price;
 	}
 
-	public void Double(Double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

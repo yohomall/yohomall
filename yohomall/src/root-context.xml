@@ -15,7 +15,7 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
-	<context:component-scan base-package="com.**.service.impl"></context:component-scan>
+	<context:component-scan base-package="com.**.service.impl,com.**.dao"></context:component-scan>
 	<!-- <context:property-placeholder location="classpath:jdbc.properties"/> -->
 	
 	<util:properties id="propsReader" location="classpath:jdbc.properties"/>

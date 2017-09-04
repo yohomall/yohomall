@@ -39,7 +39,7 @@
 
 				<div style="margin:0 auto;margin-top:10px;width:950px;">
 					<strong>订单详情</strong>
-					<table class="table table-bordered">
+					<table class="table table-bordered" >
 						<tbody>
 							<tr class="warning">
 								<th colspan="2">订单编号:${bean.oid } </th>
@@ -63,7 +63,7 @@
 							<tr class="active">
 								<td width="60" width="40%">
 									
-									<img src="${pageContext.request.contextPath}/${oi.product.image}" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/pictrue/${oi.product.image}" width="70" height="60">
 								</td>
 								<td width="30%">
 									<a target="_blank"> ${oi.product.pname}</a>

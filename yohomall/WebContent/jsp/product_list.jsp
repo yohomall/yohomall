@@ -41,7 +41,7 @@
 			<c:forEach items="${page.data }" var="p">
 			<div class="col-md-2">
 				<a href="${pageContext.request.contextPath}/getProduct.action?id=${p.pid}">
-					<img src="${pageContext.request.contextPath}/${p.image}" width="170" height="170" style="display: inline-block;">
+					<img src="${pageContext.request.contextPath}/pictrue/${p.image}" width="170" height="170" style="display: inline-block;">
 				</a>
 				<p><a href="${pageContext.request.contextPath}/getProduct.action?id=${p.pid}" style='color:green'>${p.pname }</a></p>
 				<p><font color="#FF0000">商城价：&yen;${p.sellingprice }</font></p>

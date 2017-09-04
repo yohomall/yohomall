@@ -41,5 +41,8 @@ public interface OrdersService {
 	void update(Orders order)throws Exception;
 
 	List<Orders> findOrderDetails();
-
+	
+	List<Orders> findAllOrder(Integer status,Integer StartIndex, Integer pageSize);
+	
+	Integer getAdminTotalRecord(Integer status);
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.core.annotation.Order;
 
@@ -17,7 +18,10 @@ import com.yohomall.pojo.Product;
 
 public interface OrdersMapper {
 	
+	Integer getAdminTotalRecord(@Param(value="status")Integer status);
 	
+	List<Orders> findAllOrder(@Param(value="status")Integer status, @Param("StartIndex")Integer StartIndex,
+			@Param("pageSize")Integer pageSize);
 	
 	@Insert("insert into Orders(uid,addr,aname,phone,total,time,status) values(#{uid},#{addr},#{aname},#{phone},#{total},#{time},#{status})")
 	int add(Orders order);

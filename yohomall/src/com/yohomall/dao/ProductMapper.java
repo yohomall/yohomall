@@ -2,6 +2,8 @@ package com.yohomall.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -23,4 +25,13 @@ public interface ProductMapper {
 	
 	 @Select("select * from products where pname like %${name}%")
 		List<Product> seek(String name);
+	 
+	 @Select("SELECT * from products")
+	 List<Product> findAllProduct();
+	 
+	 @Insert("INSERT INTO products(image,pname,price,sellingprice,tid) VALUES(#{image},#{pname},#{price},#{sellingprice},#{category.tid})")
+	 void saveProduct(Product product);
+	 
+	 @Delete("DELETE FROM products WHERE pid=#{pid}")
+	 void removeProduct(Integer pid);
 }

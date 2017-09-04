@@ -34,4 +34,23 @@ public class CategoryServiceImpl implements CategoryService{
 		return null;
 	}
 
+	@Override
+	public void save(Category category) throws Exception {
+		 categoryMapper.save(category);
+	}
+
+	@Override
+	public Category getCategory(Integer tid) throws Exception {
+		return categoryMapper.getCategory(tid);
+	}
+
+	@Override
+	public void updateCategory(Category category) throws Exception {
+		categoryMapper.updateCategory(category);
+	}
+
+	@Override
+	public void removeCategory(Integer tid) throws Exception {
+		categoryMapper.removeCategory(tid);
+	}
 }

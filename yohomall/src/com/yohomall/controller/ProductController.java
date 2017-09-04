@@ -46,7 +46,7 @@ public class ProductController {
 		pageUtil.setData(list);
 		
 		model.addAttribute("page", pageUtil);
-		return "product_list";
+		return "/jsp/product_list";
 	}
 	
 	/**
@@ -64,14 +64,14 @@ public class ProductController {
 		
 		model.addAttribute("bean", product);
 		
-		return  "product_info";
+		return  "/jsp/product_info";
 	}
 	
 	@RequestMapping(value="seek")
 	public String getSeek(String name,Model model) throws Exception{
 		List<Product> list = service.seek(name);
 		model.addAttribute("seek",list);
-		return "product_info";	
+		return "/jsp/product_info";	
 	}
 	
 }

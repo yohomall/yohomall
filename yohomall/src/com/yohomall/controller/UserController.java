@@ -28,13 +28,13 @@ public class UserController {
 
 	@RequestMapping(value = "loginUI", method = RequestMethod.GET)
 	public String loginUI() {
-		return "login";
+		return "/jsp/login";
 	}
 
 	@RequestMapping(value = "registerUI", method = RequestMethod.GET)
 	public String registerUI() throws NoSuchAlgorithmException {
 
-		return "register";
+		return "/jsp/register";
 
 	}
 
@@ -77,7 +77,7 @@ public class UserController {
 				session.setAttribute("user", u);
 			} else {
 				m.addAttribute("message", "” œ‰ªÚ√‹¬Î¥ÌŒÛ");
-				return "login";
+				return "/jsp/login";
 			}
 
 		}
@@ -86,13 +86,13 @@ public class UserController {
 
 	@RequestMapping(value = "showUI", method = RequestMethod.GET)
 	public String showUI(int uid, Model m) {
-		return "showU";
+		return "/jsp/showU";
 
 	}
 
 	@RequestMapping(value = "editUI", method = RequestMethod.GET)
 	public String editUI() {
-		return "editU";
+		return "/jsp/editU";
 
 	}
 

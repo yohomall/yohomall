@@ -43,8 +43,8 @@
 								<th colspan="1">
 									<c:if test="${o.status == 0 }"><a href="${pageContext.request.contextPath}/getOrder.action?oid=${o.oid}">未付款</a></c:if>
 									<c:if test="${o.status == 1 }">已付款</c:if>
-									<c:if test="${o.status == 2 }">代发货</c:if>
-									<c:if test="${o.status == 3 }">已收货</c:if>
+									<c:if test="${o.status == 2 }"><a href="${pageContext.request.contextPath}/updateOrderStarus.action?oid=${o.oid}">确认收货</a></c:if>
+									<c:if test="${o.status == 3 }">已完成</c:if>
 								</th>
 								<th colspan="2">金额:${o.total }元 </th>
 							</tr>
@@ -59,7 +59,7 @@
 							<tr class="active">
 								<td width="60" width="40%">
 									<input type="hidden" name="id" value="22">
-									<img src="${pageContext.request.contextPath}/${ov.image}" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/pictrue/${ov.image}" width="70" height="60">
 								</td>
 								<td width="30%">
 									<a target="_blank"> ${ov.pname}</a>
@@ -101,7 +101,7 @@
 			</ul>
 		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 传智商城 版权所有
+			
 		</div>
 	</body>
 

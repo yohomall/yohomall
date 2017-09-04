@@ -47,4 +47,21 @@ public class ProductServiceImpl implements  ProductService{
 		return list;
 	}
 
+	@Override
+	public List<Product> findAllProduct() throws Exception {
+		// TODO Auto-generated method stub
+		return productMapper.findAllProduct();
+	}
+
+	@Override
+	public void saveProduct(Product product) {
+		// TODO Auto-generated method stub
+		productMapper.saveProduct(product);
+	}
+
+	@Override
+	public void removeProduct(Integer pid) {
+		// TODO Auto-generated method stub
+		productMapper.removeProduct(pid);
+	}
 }

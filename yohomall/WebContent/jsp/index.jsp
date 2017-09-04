@@ -87,7 +87,7 @@
 					<c:forEach items="${wlist }" var="w">
 					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/getProduct.action?id=${w.pid}">
-							<img src="${pageContext.request.contextPath}/${w.image}" width="130" height="130" style="display: inline-block;">
+							<img src="${pageContext.request.contextPath}/pictrue/${w.image}" width="130" height="130" style="display: inline-block;">
 						</a>
 						<p><a href="${pageContext.request.contextPath}/getProduct.action?id=${w.pid}" style='color:#666'>${w.pname}</a></p>
 						<p><font color="#E4393C" style="font-size:16px">&yen;${w.sellingprice}</font></p>
@@ -126,7 +126,7 @@
 					<c:forEach items="${mlist }" var="m">
 					<div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/getProduct.action?id=${m.pid}">
-							<img src="${pageContext.request.contextPath}/${m.image}" width="130" height="130" style="display: inline-block;">
+							<img src="${pageContext.request.contextPath}/pictrue/${m.image}" width="130" height="130" style="display: inline-block;">
 						</a>
 						<p><a href="${pageContext.request.contextPath}/getProduct.action?id=${m.pid}" style='color:#666'>${m.pname }</a></p>
 						<p><font color="#E4393C" style="font-size:16px">&yen;${m.sellingprice }</font></p>

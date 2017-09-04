@@ -3,9 +3,22 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yohomall.dao.OrdersMapper">
 
+	<sql id="query_status">
+			<if test="status != null">
+				AND	status=#{status}
+			</if>
+			
+	</sql>
     
     <select id="getTotalRecord" resultType="int">
     	SELECT COUNT(*) FROM orders WHERE uid=#{uid}
+    </select>
+    
+    <select id="getAdminTotalRecord" resultType="Integer">
+    	SELECT COUNT(*) FROM orders 
+    	<where>
+			<include refid="query_status"></include>
+		</where>
     </select>
     
     <select id="getMyOrdersByPage" resultType="com.yohomall.pojo.Orders">
@@ -23,7 +36,7 @@
     
     <select id="getByID" resultType="com.yohomall.pojo.Orders">
     
-   		 SELECT * FROM orders where oid=#{oid}
+   		 SELECT * FROM orders where oid=#{oid} LIMIT 1;
     
     </select>
     
@@ -62,6 +75,16 @@
 	    select o.*, p.pname,m.quantity  from orderitem m
 		left join orders o on m.oid = o.oid
 		left join products p on m.pid = p.pid
+	</select>
+	
+	
+	
+	<select id="findAllOrder" resultType="com.yohomall.pojo.Orders">
+		SELECT * FROM orders 
+		<where>
+			<include refid="query_status"></include>
+		</where>
+		order by time desc LIMIT #{StartIndex},#{pageSize}
 	</select>
 
 </mapper>

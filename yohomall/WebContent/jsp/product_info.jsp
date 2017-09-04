@@ -42,7 +42,7 @@
 
 				<div style="margin:0 auto;width:950px;">
 					<div class="col-md-6">
-						<img style="opacity: 1;width:400px;height:350px;" title="" class="medium" src="${pageContext.request.contextPath}/${bean.image }">
+						<img style="opacity: 1;width:400px;height:350px;" title="" class="medium" src="${pageContext.request.contextPath}/pictrue/${bean.image }">
 					</div>
 
 					<div class="col-md-6">

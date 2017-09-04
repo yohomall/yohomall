@@ -38,6 +38,19 @@ public class OrderController {
 	
 	@Autowired
 	private OrdersServiceImpl oservice;
+	
+	@RequestMapping(value="updateOrderStarus")
+	public String updateStatus(String oid) throws Exception {
+		Orders order= oservice.getByID(oid);
+		
+		order.setStatus(ContantUtil.ORDER_YIWANCHENG);
+		
+		oservice.update(order);
+		
+		
+		return "redirect:/MyOrders.action?pageNum=1";
+	}
+	
 	/**
 	 * 
 	 * @param order
@@ -51,7 +64,7 @@ public class OrderController {
 		if (user==null) {
 			//未登录
 			request.setAttribute("msg", "请先登录");
-			return "msg";
+			return "/jsp/msg";
 		}
 		
 		//获取购物车
@@ -90,7 +103,7 @@ public class OrderController {
 		
 		request.setAttribute("bean", order);
 		
-		return "order_info";
+		return "/jsp/order_info";
 	}
 	/**
 	 * 
@@ -108,7 +121,7 @@ public class OrderController {
 		if (user==null) {
 			//未登录
 			request.setAttribute("msg", "请先登录");
-			return "msg";
+			return "/jsp/msg";
 		}
 		
 		int pageNum=Integer.valueOf(request.getParameter("pageNum"));
@@ -123,7 +136,7 @@ public class OrderController {
 		
 		model.addAttribute("pb", pageUtil);
 		
-		return "order_list";
+		return "/jsp/order_list";
 	}
 	
 	@RequestMapping(value="getOrder")
@@ -133,7 +146,7 @@ public class OrderController {
 		
 		model.addAttribute("bean", order);
 		
-		return "order_info1";
+		return "/jsp/order_info1";
 	}
 	/**
 	 * 在线支付
@@ -268,7 +281,7 @@ public class OrderController {
 			e.printStackTrace();
 		}
 		
-		return "msg";
+		return "/jsp/msg";
 		
 	}
 	

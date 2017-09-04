@@ -92,4 +92,18 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 
 
+	@Override
+	public List<Orders> findAllOrder(Integer status,Integer StartIndex, Integer pageSize) {
+		// TODO Auto-generated method stub
+		return ordersMapper.findAllOrder(status, StartIndex, pageSize);
+	}
+
+
+	@Override
+	public Integer getAdminTotalRecord(Integer status) {
+		// TODO Auto-generated method stub
+		return ordersMapper.getAdminTotalRecord(status);
+	}
+
+
 }

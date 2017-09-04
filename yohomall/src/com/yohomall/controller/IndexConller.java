@@ -26,7 +26,7 @@ public class IndexConller {
 		model.addAttribute("wlist", wList);
 		model.addAttribute("mlist", mList);
 		
-		return "index";
+		return "/jsp/index";
 		
 	}
 }
