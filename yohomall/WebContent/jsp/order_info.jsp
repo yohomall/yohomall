@@ -29,6 +29,9 @@
 	</head>
 
 	<body>
+
+
+
 	
 		<%@ include file="/jsp/head.jsp" %>
 			
@@ -80,7 +83,11 @@
 							</tr>
 						</c:forEach>
 						</tbody>
+
 					</table>
+
+				</form>
+
 				</div>
 
 				<div style="text-align:right;margin-right:120px;">
@@ -150,7 +157,9 @@
 					<hr/>
 
 				</div>
+
 			</div>
+
 		</form>
 		</div>
 
@@ -172,8 +181,9 @@
 			</ul>
 		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 传智商城 版权所有
+			
 		</div>
+
 
 	</body>
 

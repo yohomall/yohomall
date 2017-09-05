@@ -43,6 +43,7 @@
 
 	<resultMap type="Orders" id="orders-result">
 		<id property="oid" column="oid" />
+		<result property="uid" column="uid"/>
 		<result property="addr" column="addr" />
 		<result property="aname" column="aname" />
 		<result property="phone" column="phone" />
@@ -61,20 +62,23 @@
 	
 	<resultMap type="Item" id="orderitem-result">
 		<id property="oid" column="oid" />
-		<result property="pid" column="pid" />
+		<id property="pid" column="pid" />
 		<result property="quantity" column="quantity" />
-		<collection property="product" ofType="Product" resultMap="product-result" />
+		<association property="product" column="pid" resultMap="product-result"></association>
+		<!-- <collection property="product" ofType="Product" resultMap="product-result" /> -->
 	</resultMap>
 	
 	<resultMap type="Product" id="product-result">
 		<id property="pid" column="pid" />
-		<result property="pname" column="pname" />
+		 <result property="pname" column="pname" /> 
+		<!-- <collection property="items" ofType="Item" resultMap="orderitem-result"/> -->
 	</resultMap>
 	
-	<select id="findOrderDetails" resultMap="orders-result">
-	    select o.*, p.pname,m.quantity  from orderitem m
+	<select id="findById" resultMap="orders-result">
+	    select o.*, p.*,m.*  from orderitem m
 		left join orders o on m.oid = o.oid
 		left join products p on m.pid = p.pid
+		where o.oid=#{oid}
 	</select>
 	
 	

@@ -3,6 +3,7 @@ package com.yohomall.service;
 import java.util.List;
 
 
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.core.annotation.Order;
 
@@ -12,6 +13,7 @@ import com.yohomall.pojo.OrdersVo;
 
 public interface OrdersService {
 	
+
 	int newOrder(Orders order);
 
 	void save(Orders order) throws Exception;
@@ -45,4 +47,5 @@ public interface OrdersService {
 	List<Orders> findAllOrder(Integer status,Integer StartIndex, Integer pageSize);
 	
 	Integer getAdminTotalRecord(Integer status);
+
 }

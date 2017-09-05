@@ -158,7 +158,7 @@
 					</ul>
 				</div>
 				<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-					Copyright &copy; 2005-2016 newer 版权所有
+					
 				</div>
 			</div>
 		</div>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yohomall.service.impl.CategoryServiceImpl;
 
@@ -22,7 +23,7 @@ public class CategoryController {
 	  * @param response
 	  * @throws Exception
 	  */
-	@RequestMapping(value="category")
+	@RequestMapping(value="category",method=RequestMethod.POST)
 	public void findAll(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");	
 		

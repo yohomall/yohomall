@@ -23,8 +23,9 @@ public interface ProductMapper {
 	List<Product> getByPage(@Param("tid") Integer tid,@Param("StartIndex")Integer StartIndex,
 			@Param("pageSize")Integer pageSize);
 	
-	 @Select("select * from products where pname like %${name}%")
-		List<Product> seek(String name);
+
+	 /*@Select("select * from products where pname like %${name}%")
+		List<Product> seek(String name);*/
 	 
 	 @Select("SELECT * from products")
 	 List<Product> findAllProduct();
@@ -34,4 +35,7 @@ public interface ProductMapper {
 	 
 	 @Delete("DELETE FROM products WHERE pid=#{pid}")
 	 void removeProduct(Integer pid);
+
+	
+
 }

@@ -2,7 +2,6 @@ package com.yohomall.controller;
 
 import java.util.List;
 
-import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,11 +66,16 @@ public class ProductController {
 		return  "/jsp/product_info";
 	}
 	
-	@RequestMapping(value="seek")
-	public String getSeek(String name,Model model) throws Exception{
-		List<Product> list = service.seek(name);
+	/*@RequestMapping(value="seek")
+	public String getSeek(String pname,Model model) throws Exception{
+		List<Product> list = service.seek(pname);
+
 		model.addAttribute("seek",list);
+
 		return "/jsp/product_info";	
-	}
+
+			
+
+	}*/
 	
 }

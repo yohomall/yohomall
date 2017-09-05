@@ -144,7 +144,7 @@
 												<a href="${pageContext.request.contextPath }/adminOrder.action?status=${status }&pageNum=${pg.pageNum+1}">下一页</a>
 											</c:if>
 											<span>共${pg.totalPage }页</span>
-											到<input id="p" type="text" maxlength="4" style="width:20px">页<input type="button" value="确定" onclick="search()">
+											到<input id="p" type="text" maxlength="4" style="width:30px">页<input type="button" value="确定" onclick="search()">
 										</td>
 									</tr>     
 				</TBODY>

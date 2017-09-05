@@ -12,7 +12,8 @@ public class Item implements Serializable{
 	private int pid;
 	private int oid;
 	private int quantity;
-	private List<Product> product;
+	private Product product;
+	private String pname;
 	public int getPid() {
 		return pid;
 	}
@@ -31,12 +32,19 @@ public class Item implements Serializable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public List<Product> getProduct() {
+	public Product getProduct() {
 		return product;
 	}
-	public void setProduct(List<Product> product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	
 
 	
 }

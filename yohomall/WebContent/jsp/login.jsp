@@ -55,7 +55,7 @@ font {
 	
   
  <div class="form-group">
-    <label for="username" class="col-sm-2 control-label">用户邮箱</label>
+    <label for="username" class="col-sm-2 control-label">邮箱</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" id="email" placeholder="请输入邮箱" name="email">
     </div>
@@ -74,7 +74,7 @@ font {
           <input type="checkbox"> 自动登录
         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label>
-          <input type="checkbox"> 记住用户名
+          <input type="checkbox" name="savename" value="ok"> 记住用户名
         </label>
       </div>
     </div>
@@ -84,6 +84,7 @@ font {
     <input type="submit"  width="100" value="登录" name="submit" border="0"
     style="background: url('${pageContext.request.contextPath}/images/login.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     height:35px;width:100px;color:white;">
+    <span style="float: none;"><a href="${pageContext.request.contextPath}/adminLoginUI.action">管理员登录>>></a></span>
     </div>
   </div>
 </form>
@@ -110,6 +111,6 @@ font {
 			</ul>
 		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 传智商城 版权所有
+			
 		</div>
 </body></html>

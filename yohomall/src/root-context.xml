@@ -19,6 +19,7 @@
 	<!-- <context:property-placeholder location="classpath:jdbc.properties"/> -->
 	
 	<util:properties id="propsReader" location="classpath:jdbc.properties"/>
+	
 	<!--数据源  -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<!-- <property name="driverClass" value="${driver}" />

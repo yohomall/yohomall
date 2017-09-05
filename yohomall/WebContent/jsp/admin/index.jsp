@@ -16,7 +16,7 @@ body {
 </head>
 <body style="background: #278296">
 <center></center>
-<form method="post" action="${pageContext.request.contextPath }/adminLogin.action" target="_parent" name='theForm' onsubmit="return validate()">
+<form method="post" action="${pageContext.request.contextPath }/admin/login.action" target="_parent" name='theForm' onsubmit="return validate()">
   <table cellspacing="0" cellpadding="0" style="margin-top: 100px" align="center">
   <tr>
     <td style="padding-left: 50px">

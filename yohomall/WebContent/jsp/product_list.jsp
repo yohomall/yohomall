@@ -52,59 +52,6 @@
 
 		<!--分页 -->
 			
-		
-		<%-- <div style="width:380px;margin:0 auto;margin-top:50px;">
-			<ul class="pagination" style="text-align:center; margin-top:10px;">
-			<!--是第一页  -->
-			<c:if test="${page.pageNum==1 }" >
-				<li class="disabled">
-					<a href="javascript:viod(0)" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			</c:if>
-			<!--不是第一页  -->
-			<c:if test="${page.pageNum !=1 }" >
-				<li >
-					<a href="${pageContext.request.contextPath}/product.action?&pageNum=${page.pageNum-1 }&tid=${param.tid}" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			</c:if>
-				<!-- 遍历展示商品 -->
-				<c:forEach  begin="1"  end="${page.totalPage }" var="n">
-					<c:if test="${page.totalPage == n }">
-						<li class="active"><a href="javascript:void(0)">${n }</a></li>
-					</c:if>
-					
-					<c:if test="${page.totalPage!=n }">
-						<li >
-							<a href="${pageContext.request.contextPath}/product.action?&pageNum=${n}&tid=${param.tid}">${n }</a>
-						</li>
-					</c:if>
-					
-				</c:forEach>
-				
-			
-				<!--是最后一页  -->
-				<c:if test="${page.pageNum==page.totalPage }" >
-					<li class="disabled">
-						<a href="javascript:viod(0)" aria-label="Next">
-						<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-				</c:if>
-				<!--不是最后一页  -->
-				<c:if test="${page.pageNum!=page.totalPage }" >
-					<li >
-						<a href="${pageContext.request.contextPath}/product.action?&pageNum=${page.pageNum+1 }&tid=${param.tid}" aria-label="Next">
-						<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-				</c:if>
-				
-			</ul>
-		</div> --%>
 		<div style="width:380px;margin:0 auto;margin-top:50px;">
 			<ul class="pagination" style="text-align:center; margin-top:10px;">
 				
@@ -192,7 +139,7 @@
 			</ul>
 		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 传智商城 版权所有
+			
 		</div>
 
 	</body>

@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-			<div class="container-fluid">
+		<div class="container-fluid">
 				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.png" />
+					<%-- <img src="${pageContext.request.contextPath}/img/logo2.png" /> --%>
 				</div>
 				<div class="col-md-5">
 					<img src="${pageContext.request.contextPath}/img/header.png" />
@@ -19,22 +18,19 @@
 						<c:if test="${not empty user }">
 							姓名：${user.uname } 欢迎你
 							<li><a href="${pageContext.request.contextPath }/showUI.action?uid=${user.uid}">我的信息</a></li>
+
 							<li><a href="${pageContext.request.contextPath }/MyOrders.action?pageNum=1">我的订单</a></li>
-							
+
 							<li><a href="${pageContext.request.contextPath }/loginOut.action">退出</a></li>
 						</c:if>
 						
 
 						<li><a href="${pageContext.request.contextPath }/jsp/cart.jsp">购物车</a></li>	
-						
-						
-							<%-- <li><a href="${pageContext.request.contextPath }/order?method=findMyOrdersByPage&pageNumber=1">我的订单</a></li>
-							<li><a href="${pageContext.request.contextPath }/user?method=logout">退出</a></li> --%>
-						
-				
 					</ol>
 				</div>
 			</div>
+				
+	
 			<!--
             	时间：2015-12-30
             	描述：导航条
@@ -72,13 +68,8 @@
 			</div>
 <script type="text/javascript">
 	      $(function(){
-		//发送ajax 查询所有分类
 		$.post("${pageContext.request.contextPath}/category.action",function(obj){
-			//alert(obj);
-			//遍历json列表,获取每一个分类,包装成li标签,插入到ul内部
-			//$.each($(obj),function(){});
 			 $(obj).each(function(){
-				// alert(this.tid);
 				  $("#c_ul").append("<li><a href='${pageContext.request.contextPath}/product.action?pageNum=1&tid="+this.tid+"'>"+this.type+"</a></li>");  
 			}); 
 		},"json");

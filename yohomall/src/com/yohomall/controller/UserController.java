@@ -2,6 +2,7 @@ package com.yohomall.controller;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,11 +15,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.servlet.ModelAndView;
+
 import org.springframework.web.bind.annotation.SessionAttributes;
+
 
 import com.yohomall.pojo.User;
 import com.yohomall.service.exception.existException;
 import com.yohomall.service.impl.UserServiceImpl;
+import com.yohomall.util.PageUtil;
 import com.yohomall.util.Util;
 
 @Controller
@@ -109,5 +115,23 @@ public class UserController {
 			throws IOException {
 		req.getSession().invalidate();
 		return "redirect:index.action";
+	}
+	
+	@RequestMapping(value = "admin", method = RequestMethod.GET)
+	public ModelAndView admin(Model m,HttpServletRequest request) throws Exception{
+		PageUtil<User> pageUtil =  new PageUtil<User>();
+		pageUtil.setTotalRecord(userService.getTotalRecord());
+		pageUtil.setPageSize(5);
+		int pageNum = 1;
+		if (request.getParameter("pageNum")!=null) {
+			pageNum=Integer.valueOf(request.getParameter("pageNum"));
+		}
+		pageUtil.setPageNum(pageNum);
+		int StartIndex=pageUtil.getStartIndex();
+		List<User> ulist = userService.getByPage(StartIndex, pageUtil.getPageSize());
+		pageUtil.setData(ulist);
+		m.addAttribute("page", pageUtil);
+		
+		return new ModelAndView("/jsp/userList","page",pageUtil);
 	}
 }

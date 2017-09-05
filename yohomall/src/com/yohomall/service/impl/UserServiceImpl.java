@@ -1,6 +1,7 @@
 package com.yohomall.service.impl;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,6 +61,18 @@ public class UserServiceImpl implements UserService {
 	public User findById(int id) {
 		
 		return userMapper.findById(id);
+	}
+
+	@Override
+	public List<User> getByPage(Integer StartIndex, Integer pageSize) {
+		
+		return userMapper.getByPage(StartIndex,  pageSize);
+	}
+
+	@Override
+	public int getTotalRecord() throws Exception {
+		
+		return userMapper.getTotal();
 	}
 
 }
